@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SmallBannerItem>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Small Banner Items</h4>
+			<a class="btn btn-primary" asp-action="Create">Create Small Banner</a>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Image</th>
+							<th>Name</th>
+							<th>Title</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (SmallBannerItem smallBannerItem in Model)
+						{
+							<tr>
+								<td class="py-1">
+									<img style="width:60px; height:60px;" src="~/admin/assets/database/@smallBannerItem.Photo" />
+								</td>
+								<td style="max-width:300px">@smallBannerItem.Name</td>
+								<td style="max-width:300px">@smallBannerItem.Title</td>
+								<td>
+									<a class="btn btn-success" asp-action="Detail" asp-route-id="@smallBannerItem.Id">
+										<i class="mdi mdi-information-outline" style="color:white"></i>
+									</a>
+									<a class="btn btn-warning" asp-action="Update" asp-route-id="@smallBannerItem.Id">
+										<i class="mdi mdi-grease-pencil" style="color:white"></i>
+									</a>
+									<a class="btn btn-danger" asp-action="Delete" asp-route-id="@smallBannerItem.Id">
+										<i class="mdi mdi-delete" style="color:white"></i>
+									</a>
+
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+

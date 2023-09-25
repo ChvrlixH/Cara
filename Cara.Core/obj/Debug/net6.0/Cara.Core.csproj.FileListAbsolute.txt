@@ -1,0 +1,12 @@
+C:\Users\Asus\source\repos\CaraEcommerce\Cara.Core\bin\Debug\net6.0\Cara.Core.deps.json
+C:\Users\Asus\source\repos\CaraEcommerce\Cara.Core\bin\Debug\net6.0\Cara.Core.dll
+C:\Users\Asus\source\repos\CaraEcommerce\Cara.Core\bin\Debug\net6.0\Cara.Core.pdb
+C:\Users\Asus\source\repos\CaraEcommerce\Cara.Core\obj\Debug\net6.0\Cara.Core.csproj.AssemblyReference.cache
+C:\Users\Asus\source\repos\CaraEcommerce\Cara.Core\obj\Debug\net6.0\Cara.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\source\repos\CaraEcommerce\Cara.Core\obj\Debug\net6.0\Cara.Core.AssemblyInfoInputs.cache
+C:\Users\Asus\source\repos\CaraEcommerce\Cara.Core\obj\Debug\net6.0\Cara.Core.AssemblyInfo.cs
+C:\Users\Asus\source\repos\CaraEcommerce\Cara.Core\obj\Debug\net6.0\Cara.Core.csproj.CoreCompileInputs.cache
+C:\Users\Asus\source\repos\CaraEcommerce\Cara.Core\obj\Debug\net6.0\Cara.Core.dll
+C:\Users\Asus\source\repos\CaraEcommerce\Cara.Core\obj\Debug\net6.0\refint\Cara.Core.dll
+C:\Users\Asus\source\repos\CaraEcommerce\Cara.Core\obj\Debug\net6.0\Cara.Core.pdb
+C:\Users\Asus\source\repos\CaraEcommerce\Cara.Core\obj\Debug\net6.0\ref\Cara.Core.dll

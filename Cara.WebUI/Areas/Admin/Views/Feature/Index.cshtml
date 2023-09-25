@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Feature>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Feature Items</h4>
+			<a class="btn btn-primary" asp-action="Create">Create Feature</a>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Image</th>
+							<th>Title</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (Feature featureItem in Model)
+						{
+								<tr>
+									<td class="py-1">
+									<img style="width:60px; height:60px;" src="~/admin/assets/database/@featureItem.Photo" />
+									</td>
+								<td style="max-width:200px">@featureItem.Title</td>
+									<td>
+									<a class="btn btn-success" asp-action="Detail" asp-route-id="@featureItem.Id">
+											<i class="mdi mdi-information-outline" style="color:white"></i>
+										</a>
+									<a class="btn btn-warning" asp-action="Update" asp-route-id="@featureItem.Id">
+											<i class="mdi mdi-grease-pencil" style="color:white"></i>
+										</a>
+									<a class="btn btn-danger" asp-action="Delete" asp-route-id="@featureItem.Id">
+											<i class="mdi mdi-delete" style="color:white"></i>
+										</a>
+
+									</td>
+								</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+

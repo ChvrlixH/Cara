@@ -1,0 +1,57 @@
+﻿@using Cara.WebUI.Areas.Admin.ViewModels.Users;
+@model List<AllUserVM>
+@{
+	ViewData["Title"] = "Index";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Users Table</h4>
+			<a class="btn btn-primary" asp-area="" asp-controller="Auth" asp-action="Register">Create User</a>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Fullname</th>
+							<th>Username</th>
+							<th>Email</th>
+							<th>Role</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var user in Model)
+						{
+							<tr>
+								<td style="max-width:200px">@user.Fullname</td>
+								<td style="max-width:200px">@user.Username</td>
+								<td style="max-width:300px">@user.Email</td>
+								<td style="max-width:100px">@user.Role</td>
+								<td>
+									@if (user.IsActive)
+									{
+										<a class="btn btn-success @(user.Role=="Admin"?"disabled":"")" asp-action="Block" asp-route-id="@user.Id">
+											<i class="mdi mdi-account-check" style="color:white"></i>
+									</a>
+									}
+									@if (!user.IsActive)
+									{
+										<a class="btn btn-danger @(user.Role=="Admin"?"disabled":"")" asp-action="Unblock" asp-route-id="@user.Id">
+											<i class="mdi mdi-block-helper" style="color:white"></i>
+									</a>
+									}
+									<a class="btn btn-warning @(user.Role=="Admin"?"disabled":"")" asp-action="ChangeRole" asp-route-id="@user.Id">
+										<i class="mdi mdi-grease-pencil" style="color:white"></i>
+									</a>
+
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+

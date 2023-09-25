@@ -1,0 +1,346 @@
+﻿@model HomeViewModel
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="hero" class="darkmode-ignore">
+	@foreach (HeroItem item in Model.HeroItems.Where(h => h.isActive))
+	{
+		<img src="~/admin/assets/database/@item.Photo" alt="Super Value Deals" class="hero-image" />
+		<h4 class="banner-title">@item.Name</h4>
+		<h2 class="banner-subtitle">@item.Title</h2>
+		<h1 class="banner-title">@item.SubTitle</h1>
+		<p class="banner-description">@item.Description</p>
+		<a href="shop.html"><button>Shop Now</button></a>
+	}
+</section>
+
+<section id="feature" class="section-p1">
+	@foreach (Feature item in Model.Features)
+	{
+	<div class="fe-box">
+			<img src="~/admin/assets/database/@item.Photo" alt="" />
+		<h6>@item.Title</h6>
+	</div>	
+	}
+
+</section>
+
+<section id="product1" class="section-p1">
+	<h2>Featured Products</h2>
+	<p>Summer Collection New Morden Design</p>
+	<div class="pro-container">
+		<div class="pro">
+			<img src="~/assets/img/products/f1.jpg" alt="" />
+			<div class="des">
+				<span>adidas</span>
+				<h5>Caartoon Astronaut T-Shirts</h5>
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<h4>$78</h4>
+			</div>
+			<a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+		</div>
+		<div class="pro">
+			<img src="~/assets/img/products/f2.jpg" alt="" />
+			<div class="des">
+				<span>adidas</span>
+				<h5>Caartoon Astronaut T-Shirts</h5>
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<h4>$78</h4>
+			</div>
+			<a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+		</div>
+		<div class="pro">
+			<img src="~/assets/img/products/f3.jpg" alt="" />
+			<div class="des">
+				<span>adidas</span>
+				<h5>Caartoon Astronaut T-Shirts</h5>
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<h4>$78</h4>
+			</div>
+			<a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+		</div>
+		<div class="pro">
+			<img src="~/assets/img/products/f4.jpg" alt="" />
+			<div class="des">
+				<span>adidas</span>
+				<h5>Caartoon Astronaut T-Shirts</h5>
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<h4>$78</h4>
+			</div>
+			<a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+		</div>
+		<div class="pro">
+			<img src="~/assets/img/products/f5.jpg" alt="" />
+			<div class="des">
+				<span>adidas</span>
+				<h5>Caartoon Astronaut T-Shirts</h5>
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<h4>$78</h4>
+			</div>
+			<a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+		</div>
+		<div class="pro">
+			<img src="~/assets/img/products/f6.jpg" alt="" />
+			<div class="des">
+				<span>adidas</span>
+				<h5>Caartoon Astronaut T-Shirts</h5>
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<h4>$78</h4>
+			</div>
+			<a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+		</div>
+		<div class="pro">
+			<img src="~/assets/img/products/f7.jpg" alt="" />
+			<div class="des">
+				<span>adidas</span>
+				<h5>Caartoon Astronaut T-Shirts</h5>
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<h4>$78</h4>
+			</div>
+			<a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+		</div>
+		<div class="pro">
+			<img src="~/assets/img/products/f8.jpg" alt="" />
+			<div class="des">
+				<span>adidas</span>
+				<h5>Caartoon Astronaut T-Shirts</h5>
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<h4>$78</h4>
+			</div>
+			<a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+		</div>
+	</div>
+</section>
+
+<section id="banner" class="section-m1">
+	<h4>Repair Service</h4>
+	<h2>Up to <span>70% Off</span> - All t-Shirts & Accessories</h2>
+	<a href="shop.html"><button class="normal">Explore More</button></a>
+</section>
+
+<section id="product1" class="section-p1">
+	<h2>New Arrivals</h2>
+	<p>Summer Collection New Morden Design</p>
+	<div class="pro-container">
+		<div class="pro">
+			<img src="~/assets/img/products/n1.jpg" alt="" />
+			<div class="des">
+				<span>adidas</span>
+				<h5>Caartoon Astronaut T-Shirts</h5>
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<h4>$78</h4>
+			</div>
+			<a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+		</div>
+		<div class="pro">
+			<img src="~/assets/img/products/n2.jpg" alt="" />
+			<div class="des">
+				<span>adidas</span>
+				<h5>Caartoon Astronaut T-Shirts</h5>
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<h4>$78</h4>
+			</div>
+			<a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+		</div>
+		<div class="pro">
+			<img src="~/assets/img/products/n3.jpg" alt="" />
+			<div class="des">
+				<span>adidas</span>
+				<h5>Caartoon Astronaut T-Shirts</h5>
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<h4>$78</h4>
+			</div>
+			<a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+		</div>
+		<div class="pro">
+			<img src="~/assets/img/products/n4.jpg" alt="" />
+			<div class="des">
+				<span>adidas</span>
+				<h5>Caartoon Astronaut T-Shirts</h5>
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<h4>$78</h4>
+			</div>
+			<a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+		</div>
+		<div class="pro">
+			<img src="~/assets/img/products/n5.jpg" alt="" />
+			<div class="des">
+				<span>adidas</span>
+				<h5>Caartoon Astronaut T-Shirts</h5>
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<h4>$78</h4>
+			</div>
+			<a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+		</div>
+		<div class="pro">
+			<img src="~/assets/img/products/n6.jpg" alt="" />
+			<div class="des">
+				<span>adidas</span>
+				<h5>Caartoon Astronaut T-Shirts</h5>
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<h4>$78</h4>
+			</div>
+			<a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+		</div>
+		<div class="pro">
+			<img src="~/assets/img/products/n7.jpg" alt="" />
+			<div class="des">
+				<span>adidas</span>
+				<h5>Caartoon Astronaut T-Shirts</h5>
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<h4>$78</h4>
+			</div>
+			<a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+		</div>
+		<div class="pro">
+			<img src="~/assets/img/products/n8.jpg" alt="" />
+			<div class="des">
+				<span>adidas</span>
+				<h5>Caartoon Astronaut T-Shirts</h5>
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<h4>$78</h4>
+			</div>
+			<a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+		</div>
+	</div>
+</section>
+
+<section id="sm-banner" class="section-p1">
+	@foreach (MainBannerItem item in Model.MainBannerItems)
+	{
+		<div class="banner-box">
+			<img src="~/admin/assets/database/@item.Photo" alt="Crazy Deals" class="banner-image" />
+			<h4 class="banner-title">@item.Name</h4>
+			<h2 class="banner-subtitle">@item.Title</h2>
+			<span class="banner-description">@item.Description</span>
+			<a href="shop.html"><button class="white banner-button">@item.BtnName</button></a>
+		</div>
+	}
+</section>
+
+<section id="banner3">
+	@foreach (SmallBannerItem item in Model.SmallBannerItems)
+	{
+	<div class="banner-box">
+			<img src="~/admin/assets/database/@item.Photo"
+			 class="banner-image" />
+			<h2 class="banner-title">@item.Name</h2>
+			<h3 class="banner-subtitle">@item.Title</h3>
+	</div>		
+	}
+</section>
+
+<section id="newsletter" class="section-p1 section-m1">
+	<div class="newstext">
+		<h4>Sign Up For Newsletters</h4>
+		<p>
+			Get E-mail updates about our latest shop and
+			<span>special offers.</span>
+		</p>
+	</div>
+	<div class="form">
+		<form method="post" action="/subscribe/create"  target="_blank" novalidate style="width:100%; display:flex">
+		 <input name="Email" asp-area="Admin" asp-controller="Subscribe" asp-action="Create" type="text" placeholder="Your email address" />
+			<button name="subscribe" type="submit" class="normal">Sign Up</button>
+		</form>
+	</div>
+</section>
+

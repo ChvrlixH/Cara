@@ -1,0 +1,26 @@
+﻿@model MainBannerItem
+@{
+	ViewData["Title"] = "Delete";
+}
+
+<div class="content-wrapper  col-11">
+	<div class="row">
+		<div class="col-lg-12" style="padding-left:55px">
+			<div style="width:200px; height:auto; margin-bottom: 25px">
+				<img src="~/admin/assets/database/@Model.Photo" style="width:100%; height:auto" />
+			</div>
+			<h4> <span style="color:red">Name:</span> @Model.Name</h4>
+			<h4> <span style="color:red">Title:</span> @Model.Title</h4>
+			<h4> <span style="color:red">Description:</span> @Html.Raw(Model.Description)</h4>
+			<h4> <span style="color:red">Button Name:</span> @Model.BtnName</h4>
+
+			<div style="display:flex; gap:20px;">
+				<a class="btn btn-info" asp-action="Index" style="margin-top:30px">Go Back</a>
+				<form method="post">
+					<button type="submit" class="btn btn-danger" style="margin-top:30px">Delete</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
