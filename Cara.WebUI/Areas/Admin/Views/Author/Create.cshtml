@@ -1,0 +1,44 @@
+﻿@using Cara.WebUI.Areas.Admin.ViewModels.AuthorBlog;
+@model AuthorVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Author</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data" id="productForm">
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label>Image</label>
+                    <input type="file" asp-for="Photo" class="form-control file-upload-browse btn btn-primary" accept="image/*" placeholder="Image">
+                    <span class="text-danger" asp-validation-for="Photo"></span>
+                </div>
+                <div class="form-group">
+                    <label>Fullname</label>
+                    <input asp-for="Fullname" class="form-control" placeholder="Fullname">
+                    <span class="text-danger" asp-validation-for="Fullname"></span>
+                </div>
+                <div class="form-group">
+                    <label>Profession</label>
+                    <input asp-for="Profession" class="form-control" placeholder="Profession">
+                    <span class="text-danger" asp-validation-for="Profession"></span>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input asp-for="Phone" class="form-control" placeholder="Phone Number">
+                    <span class="text-danger" asp-validation-for="Phone"></span>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input asp-for="Email" class="form-control" placeholder="Email">
+                    <span class="text-danger" asp-validation-for="Email"></span>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2" id="submitBtn">Submit</button>
+                <a asp-action="Index" class="btn btn-light">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+

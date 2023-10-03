@@ -1,0 +1,34 @@
+﻿@using Cara.WebUI.Areas.Admin.ViewModels.ProductImage;
+@model ProductImageVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Create Product Image</h4>
+			<form class="forms-sample" method="post" enctype="multipart/form-data" id="productForm">
+				@Html.AntiForgeryToken()
+				<div class="form-group">
+					<label>Image</label>
+					<input type="file" asp-for="Photo" class="form-control file-upload-browse btn btn-primary" accept="image/*" placeholder="Image">
+					<span class="text-danger" asp-validation-for="Photo"></span>
+				</div>
+				<div class="form-group">
+					<label>Products Name</label>
+					<select class="form-control" asp-for="ProductId">
+						@foreach (Product product in ViewBag.Products)
+						{
+							<option value="@product.Id">@product.Name</option>
+						}
+					</select>
+				</div>
+				<button type="submit" class="btn btn-primary mr-2" id="submitBtn">Submit</button>
+				<a asp-action="Index" class="btn btn-light">Cancel</a>
+			</form>
+		</div>
+	</div>
+</div>
+

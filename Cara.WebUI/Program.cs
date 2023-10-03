@@ -4,7 +4,9 @@ using Cara.Business.Services;
 using Cara.Core.Entities;
 using Cara.DataAccess.Contexts;
 using Cara.DataAccess.Repositories.Implementations;
+using Cara.DataAccess.Repositories.Implementations.HeadBanners;
 using Cara.DataAccess.Repositories.Interfaces;
+using Cara.DataAccess.Repositories.Interfaces.IHeadBanners;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -49,10 +51,24 @@ builder.Services.AddScoped<IFeatureRepository, FeatureRepository>();
 builder.Services.AddScoped<IHeroItemRepository, HeroItemRepository>();
 builder.Services.AddScoped<IMainBannerRepository, MainBannerRepository>();
 builder.Services.AddScoped<ISmallBannerRepository, SmallBannerRepository>();
+builder.Services.AddScoped<IPCategoryRepository, PCategoryRepository>();
+builder.Services.AddScoped<ISizeRepository, SizeRepository>();
+builder.Services.AddScoped<IProductImageRepository, ProductImageRepository>();
+builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
+builder.Services.AddScoped<IBCategoryRepository, BCategoryRepository>();
+builder.Services.AddScoped<ITagRepository, TagRepository>();
 builder.Services.AddScoped<ISubscribeRepository, SubscribeRepository>();
+builder.Services.AddScoped<IShopBannerRepository, ShopBannerRepository>();
+builder.Services.AddScoped<IBlogBannerRepository, BlogBannerRepository>();
+builder.Services.AddScoped<IAboutBannerRepository, AboutBannerRepository>();
+builder.Services.AddScoped<IContactBannerRepository, ContactBannerRepository>();
+builder.Services.AddScoped<ICartBannerRepository, CartBannerRepository>();
+
 builder.Services.AddTransient<IMailService, MailService>();
 
 var app = builder.Build();
+
+
 
 //handle http request
 app.UseStaticFiles();

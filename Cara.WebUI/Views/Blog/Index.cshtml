@@ -1,0 +1,76 @@
+﻿@model BlogViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section id="page-header" class="blog-header darkmode-ignore">
+    @foreach (var banner in Model.BlogBanners)
+    {
+    <img src="~/admin/assets/database/headbanners/@banner.Photo" alt="Header Image" class="header-image" />
+    <h2>@banner.Title</h2>
+    <p>@banner.Description</p>    
+    }
+</section>
+
+<section id="blog-category" class="section-p1">
+    <div class="category-selector">
+        <a class="categoryBlog selected" href="/Blog">All</a>
+        @foreach (var item in Model.BCategories)
+        {
+            <a class="categoryBlog" href="/Blog/Category?categoryId=@item.Id">
+                @item.Name
+            </a>
+        }
+    </div>
+    <div class="selected-category">Selected Category: <span id="selected">All</span></div>
+</section>
+
+
+<section id="blog" class="darkmode-ignore">
+     <div id="blog-content">
+        @foreach (var item in Model.Blogs)
+        {
+            <div class="blog-box">
+                <div class="blog-img">
+                    <img src="~/admin/assets/database/blogs/@item.Photo" alt="" />
+                </div>
+                <div class="blog-details">
+                    <h4>@item.Title</h4>
+                    @if (item.Description.Length >= 130)
+                    {
+                                <p>
+                            @Html.Raw(item.Description.Substring(0,130))...
+                                </p>
+                    }
+                    else
+                    {
+                        @Html.Raw(item.Description)
+                    }
+                    <a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">CONTINUE READING</a>
+                </div>
+                <h1>@item.CreatedAt.ToString("dd/MM")</h1>
+            </div>
+        }
+</div>
+</section>
+
+<section id="pagination" class="section-p1">
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
+</section>
+
+<section id="newsletter" class="section-p1 section-m1">
+    <div class="newstext">
+        <h4>Sign Up For Newsletters</h4>
+        <p>
+            Get E-mail updates about our latest shop and
+            <span>special offers.</span>
+        </p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="Your email address" />
+        <button class="normal">Sign Up</button>
+    </div>
+</section>
+

@@ -1,0 +1,61 @@
+﻿@using Cara.WebUI.Areas.Admin.ViewModels.Blog;
+@model BlogVM
+@{
+	ViewData["Title"] = "Create";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Create Blog</h4>
+			<form class="forms-sample" method="post" enctype="multipart/form-data" id="productForm">
+				@Html.AntiForgeryToken()
+				<div class="form-group">
+					<label>Image</label>
+					<input type="file" asp-for="Photo" class="form-control file-upload-browse btn btn-primary" accept="image/*" placeholder="Image">
+					<span class="text-danger" asp-validation-for="Photo"></span>
+				</div>
+				<div class="form-group">
+					<label>Title</label>
+					<input asp-for="Title" class="form-control" placeholder="Title">
+					<span class="text-danger" asp-validation-for="Title"></span>
+				</div>
+				<div class="form-group">
+					<label>Description</label>
+					<input asp-for="Description" class="form-control" placeholder="Description">
+					<span class="text-danger" asp-validation-for="Description"></span>
+				</div>
+				<div class="form-group">
+					<label>Blog Categories</label>
+					<select class="form-control" asp-for="BCategoryId">
+						@foreach (BCategory category in ViewBag.BCategories)
+						{
+							<option value="@category.Id">@category.Name</option>
+						}
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Blog Authors</label>
+					<select class="form-control" asp-for="AuthorId">
+						@foreach (Author author in ViewBag.Authors)
+						{
+							<option value="@author.Id">@author.Fullname</option>
+						}
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="TagIds">Tags</label>
+					<select class="form-control" name="TagIds" id="TagIds" multiple>
+						@foreach (Tag tag in ViewBag.Tags)
+						{
+							<option value="@tag.Id">@tag.Name</option>
+						}
+					</select>
+				</div>
+				<button type="submit" class="btn btn-primary mr-2" id="submitBtn">Submit</button>
+				<a asp-action="Index" class="btn btn-light">Cancel</a>
+			</form>
+		</div>
+	</div>
+</div>
+

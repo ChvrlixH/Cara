@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ContactBanner>
+@{
+	ViewData["Title"] = "Index";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Shop Banners</h4>
+			<a class="btn btn-primary" asp-action="Create">Create Shop Banner</a>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Profile</th>
+							<th>Title</th>
+							<th>Description</th>
+							<th>Status</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (ContactBanner banner in Model)
+						{
+							<tr>
+								<td class="py-1">
+									<img style="width:60px; height:60px;" src="~/admin/assets/database/headbanners/@banner.Photo" />
+								</td>
+								<td style="max-width:300px">@banner.Title</td>
+								<td style="max-width:400px">@Html.Raw(banner.Description)</td>
+								<td style="max-width:100px">@banner.IsActive</td>
+								<td>
+									<a class="btn btn-success" asp-action="Detail" asp-route-id="@banner.Id">
+										<i class="mdi mdi-information-outline" style="color:white"></i>
+									</a>
+									<a class="btn btn-warning" asp-action="Update" asp-route-id="@banner.Id">
+										<i class="mdi mdi-grease-pencil" style="color:white"></i>
+									</a>
+									<a class="btn btn-danger" asp-action="Delete" asp-route-id="@banner.Id">
+										<i class="mdi mdi-delete" style="color:white"></i>
+									</a>
+
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

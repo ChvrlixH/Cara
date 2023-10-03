@@ -1,0 +1,22 @@
+﻿@model PCategory
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update Product Category</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input asp-for="Name" class="form-control" placeholder="Name">
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <a asp-action="Index" class="btn btn-light">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+

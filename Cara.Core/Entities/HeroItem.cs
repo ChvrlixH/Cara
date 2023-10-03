@@ -1,9 +1,10 @@
-﻿using Cara.Core.Interfaces;
+﻿using Cara.Core.Entities.Common;
+using Cara.Core.Interfaces;
 using System.ComponentModel.DataAnnotations;
 
 namespace Cara.Core.Entities
 {
-	public class HeroItem : IEntity
+	public class HeroItem : BaseEntity,IEntity
 	{
 		public int Id { get; set; }
 		[Required]

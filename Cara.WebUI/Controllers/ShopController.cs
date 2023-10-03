@@ -1,12 +1,28 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Cara.DataAccess.Contexts;
+using Cara.WebUI.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cara.WebUI.Controllers
 {
 	public class ShopController : Controller
 	{
-		public IActionResult Index()
+		private readonly AppDbContext _context;
+
+        public ShopController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public IActionResult Index()
 		{
-			return View();
+			ShopViewModel shopViewModel = new()
+			{
+				PCategories = _context.PCategories.AsNoTracking(),
+				ShopBanners = _context.ShopBanners.AsNoTracking()
+			};
+
+			return View(shopViewModel);
 		}
 	}
 }

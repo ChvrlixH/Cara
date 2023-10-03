@@ -1,0 +1,19 @@
+﻿@model BCategory
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="col-lg-12" style="padding-left:55px">
+	<h4> <span style="color:red">Name:</span> @Model.Name</h4>
+	<h4>
+		<span style="color:red">Blogs:</span>
+		<ol style="color:aquamarine; margin:10px; padding:10px; font-size:18px; width:max-content; background-color:darkseagreen">
+			@foreach (var blog in Model.Blogs)
+			{
+					<li style="list-style-position:inside">@blog.Title</li>
+			}
+		</ol>
+	</h4>
+	<a class="btn btn-info" asp-action="Index" style="margin-top:30px">Go Back</a>
+</div>
+

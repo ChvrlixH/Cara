@@ -1,0 +1,46 @@
+﻿@model IEnumerable<BCategory>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Blog Category</h4>
+			<a class="btn btn-primary" asp-action="Create">Create Blog Category</a>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (BCategory category in Model)
+						{
+							<tr>
+								<td style="max-width:200px">@category.Id</td>
+								<td style="max-width:300px">@category.Name</td>
+								<td>
+									<a class="btn btn-success" asp-action="Detail" asp-route-id="@category.Id">
+										<i class="mdi mdi-information-outline" style="color:white"></i>
+									</a>
+									<a class="btn btn-warning" asp-action="Update" asp-route-id="@category.Id">
+										<i class="mdi mdi-grease-pencil" style="color:white"></i>
+									</a>
+									<a class="btn btn-danger" asp-action="Delete" asp-route-id="@category.Id">
+										<i class="mdi mdi-delete" style="color:white"></i>
+									</a>
+
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+

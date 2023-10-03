@@ -1,6 +1,5 @@
 ﻿using Cara.Core.Entities;
 using Cara.DataAccess.Repositories.Interfaces;
-using Cara.WebUI.Areas.Admin.ViewModels.MainBanner;
 using Cara.WebUI.Areas.Admin.ViewModels.SmallBanner;
 using Cara.WebUI.Utilities;
 using Microsoft.AspNetCore.Authorization;

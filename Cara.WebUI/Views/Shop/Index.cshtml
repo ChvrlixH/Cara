@@ -1,12 +1,15 @@
-﻿
+﻿@model ShopViewModel
 @{
     ViewData["Title"] = "Index";
 }
 
   <section id="page-header" class="darkmode-ignore">
-      <img src="~/assets/img/banner/b1.jpg" alt="Header Image" class="header-image" />
-      <h2>#stayhome</h2>
-      <p>Save more with coupons & up to 70% off!</p>
+    @foreach (var banner in Model.ShopBanners)
+    {
+        <img src="~/admin/assets/database/headbanners/@banner.Photo" alt="Header Image" class="header-image" />
+        <h2>@banner.Title</h2>
+        <p>@banner.Description</p>
+    }
     </section>
 
     <section id="search" class="section-p1">

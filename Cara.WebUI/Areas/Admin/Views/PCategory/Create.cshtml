@@ -1,0 +1,23 @@
+﻿@model PCategory
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Product Category</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data" id="productForm">
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label>Name</label>
+                    <input asp-for="Name" class="form-control" placeholder="Name">
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2" id="submitBtn">Submit</button>
+                <a asp-action="Index" class="btn btn-light">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+

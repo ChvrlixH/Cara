@@ -1,0 +1,93 @@
+﻿@model ContactViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section id="page-header" class="about-header darkmode-ignore">
+    @foreach (var banner in Model.ContactBanners)
+    {
+        <img src="~/admin/assets/database/headbanners/@banner.Photo" alt="Header Image" class="header-image" />
+        <h2>@banner.Title</h2>
+        <p>@banner.Description</p>    
+    }
+</section>
+
+<section id="contact-details" class="section-p1">
+    <div class="details">
+        <span>GET IN TOUCH</span>
+        <h2>Visit one of our agency locations or contact us today</h2>
+        <h3>Head Office</h3>
+        <div>
+            <li>
+                <i class="fal fa-map"></i>
+                <p>
+                    Nizami küçəsi 203B, AF Business House, 2-ci mərtəbə, Baku 1000
+                </p>
+            </li>
+            <li>
+                <i class="far fa-envelope"></i>
+                <p>huseynsha@code.edu.az</p>
+            </li>
+            <li>
+                <i class="fas fa-phone-alt"></i>
+                <p>+994 50 977 77 36</p>
+            </li>
+            <li>
+                <i class="far fa-clock"></i>
+                <p>Everyday: 10:00am to 10:00pm</p>
+            </li>
+        </div>
+    </div>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.428674853689!2d49.85137057578401!3d40.377190871445976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d079efb5163%3A0xc20aa51a5f0b5e01!2sCode%20Academy!5e0!3m2!1sen!2saz!4v1686776560872!5m2!1sen!2saz"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+
+<section id="form-details">
+    <form id="myForm" method="post">
+        <span>LEAVE A MESSAGE</span>
+        <h2>We love to hear from you</h2>
+        <input type="text" id="NameContact" placeholder="Your Name" />
+        <input type="text" id="EmailContact" placeholder="E-mail" />
+        <input type="text" id="SubjectContact" placeholder="Subject" />
+        <textarea id="MessageContact"
+                  cols="30"
+                  rows="10"
+                  placeholder="Your Message"></textarea>
+        <button class="normal" type="submit">Submit</button>
+    </form>
+
+    <div class="people">
+        @foreach (var item in Model.Authors)
+        {
+        <div>
+                <img src="~/admin/assets/database/@item.Photo" style="border-radius:50%;" alt="" />
+            <p>
+                <span>@item.Fullname</span> @item.Profession <br />
+                Phone: + @item.Phone <br />Email: @item.Email
+            </p>
+        </div>    
+        }
+    </div>
+</section>
+
+<section id="newsletter" class="section-p1 section-m1">
+    <div class="newstext">
+        <h4>Sign Up For Newsletters</h4>
+        <p>
+            Get E-mail updates about our latest shop and
+            <span>special offers.</span>
+        </p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="Your email address" />
+        <button class="normal">Sign Up</button>
+    </div>
+</section>
+

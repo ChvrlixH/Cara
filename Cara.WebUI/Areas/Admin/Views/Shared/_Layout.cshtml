@@ -173,19 +173,22 @@
 							<span class="menu-title">Dashboard</span>
 						</a>
 					</li>
-					@*                    <li class="nav-item">
-					<a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-					<i class="mdi mdi-circle-outline menu-icon"></i>
-					<span class="menu-title">UI Elements</span>
-					<i class="menu-arrow"></i>
-					</a>
-					<div class="collapse" id="ui-basic">
-					<ul class="nav flex-column sub-menu">
-					<li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a></li>
-					<li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a></li>
-					</ul>
-					</div>
-					</li>*@
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+							<i class="mdi mdi-circle-outline menu-icon"></i>
+							<span class="menu-title">Head Banners</span>
+							<i class="menu-arrow"></i>
+						</a>
+						<div class="collapse" id="ui-basic">
+							<ul class="nav flex-column sub-menu">
+								<li class="nav-item"> <a class="nav-link" asp-controller="ShopBanner" asp-action="Index">Shop Banners</a></li>
+								<li class="nav-item"> <a class="nav-link" asp-controller="BlogBanner" asp-action="Index">Blog Banners</a></li>
+								<li class="nav-item"> <a class="nav-link" asp-controller="AboutBanner" asp-action="Index">About Banners</a></li>
+								<li class="nav-item"> <a class="nav-link" asp-controller="ContactBanner" asp-action="Index">Contact Banners</a></li>
+								<li class="nav-item"> <a class="nav-link" asp-controller="CartBanner" asp-action="Index">Cart Banners</a></li>
+							</ul>
+						</div>
+					</li>
 					<li class="nav-item">
 						<a class="nav-link" asp-controller="HeroItem" asp-action="Index">
 							<i class="mdi mdi-view-headline menu-icon"></i>
@@ -225,15 +228,31 @@
 					<li class="nav-item">
 						<a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
 							<i class="mdi mdi-account menu-icon"></i>
-							<span class="menu-title">User Pages</span>
+							<span class="menu-title">Product Pages</span>
 							<i class="menu-arrow"></i>
 						</a>
 						<div class="collapse" id="auth">
 							<ul class="nav flex-column sub-menu">
-								<li class="nav-item"> <a class="nav-link" href="../../pages/samples/login.html"> Login </a></li>
-								<li class="nav-item"> <a class="nav-link" href="../../pages/samples/login-2.html"> Login 2 </a></li>
-								<li class="nav-item"> <a class="nav-link" href="../../pages/samples/register.html"> Register </a></li>
-								<li class="nav-item"> <a class="nav-link" href="../../pages/samples/register-2.html"> Register 2 </a></li>
+								<li class="nav-item"> <a class="nav-link" asp-controller="Product" asp-action="Index"> Product Page </a></li>
+								<li class="nav-item"> <a class="nav-link" asp-controller="ProductImage" asp-action="Index"> Product Images </a></li>
+								<li class="nav-item"> <a class="nav-link" asp-controller="PCategory" asp-action="Index"> Product Categories </a></li>
+								<li class="nav-item"> <a class="nav-link" asp-controller="Size" asp-action="Index"> Product Sizes </a></li>
+								<li class="nav-item"> <a class="nav-link" href="../../pages/samples/lock-screen.html"> Lockscreen </a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+							<i class="mdi mdi-account menu-icon"></i>
+							<span class="menu-title">Blog Pages</span>
+							<i class="menu-arrow"></i>
+						</a>
+						<div class="collapse" id="auth">
+							<ul class="nav flex-column sub-menu">
+								<li class="nav-item"> <a class="nav-link" asp-controller="Blog" asp-action="Index"> Blog Page </a></li>
+								<li class="nav-item"> <a class="nav-link" asp-controller="Author" asp-action="Index"> Author </a></li>
+								<li class="nav-item"> <a class="nav-link" asp-controller="BCategory" asp-action="Index"> Blog Categories </a></li>
+								<li class="nav-item"> <a class="nav-link" asp-controller="Tag" asp-action="Index"> Blog Tags </a></li>
 								<li class="nav-item"> <a class="nav-link" href="../../pages/samples/lock-screen.html"> Lockscreen </a></li>
 							</ul>
 						</div>
@@ -269,6 +288,7 @@
 	<script src="~/admin/assets/js/off-canvas.js"></script>
 	<script src="~/admin/assets/js/hoverable-collapse.js"></script>
 	<script src="~/admin/assets/js/template.js"></script>
+	<script src="~/admin/assets/js/submitButton.js"></script>
 	<!-- endinject -->
 	<!-- Custom js for this page-->
 	<script src="~/admin/assets/js/chart.js"></script>

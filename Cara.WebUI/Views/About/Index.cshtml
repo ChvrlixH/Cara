@@ -1,0 +1,91 @@
+﻿@model AboutViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section id="page-header" class="about-header darkmode-ignore">
+    @foreach (var banner in Model.AboutBanners)
+    {
+        <img src="~/admin/assets/database/headbanners/@banner.Photo" alt="Header Image" class="header-image" />
+        <h2>@banner.Title</h2>
+        <p>@banner.Description</p>    
+    }
+</section>
+
+<section id="about-head" class="section-p1">
+    <img src="~/assets/img/about/a6.jpg" alt="" />
+    <div>
+        <h2>Who We Are?</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem unde
+            illum eveniet ullam fugiat inventore consequatur modi. Ut temporibus
+            ratione architecto, hic obcaecati dolorum vel sequi fugit delectus et
+            quaerat excepturi repudiandae cumque expedita necessitatibus autem
+            dolor dolore ea, eligendi commodi atque quidem sapiente. Quam error
+            natus magni eaque id!
+        </p>
+        <abbr title="">
+            Create stunning images with as much or as little control as you like
+            thanks to a choice of Basic and Creative modes.
+        </abbr>
+
+        <br /><br />
+
+        <marquee bgcolor="#ccc" loop="-1" scrollamount="7" width="100%">
+            Create stunning images with as much or as little control as you like
+            thanks to a choice of Basic and Creative modes.
+        </marquee>
+    </div>
+</section>
+
+<section id="about-app" class="section-p1">
+    <h1>
+        Download Our
+        <a href="/Mobile_Cara-20230619T231956Z-001.zip" download="Cara">App</a>
+    </h1>
+    <div class="video">
+        <video autoplay muted loop src="~/assets/img/about/1.mp4"></video>
+    </div>
+</section>
+
+<section id="feature" class="section-p1">
+    <div class="fe-box">
+        <img src="~/assets/img/features/f1.png" alt="" />
+        <h6>Free Shipping</h6>
+    </div>
+    <div class="fe-box">
+        <img src="~/assets/img/features/f2.png" alt="" />
+        <h6>Online Order</h6>
+    </div>
+    <div class="fe-box">
+        <img src="~/assets/img/features/f3.png" alt="" />
+        <h6>Save Money</h6>
+    </div>
+    <div class="fe-box">
+        <img src="~/assets/img/features/f4.png" alt="" />
+        <h6>Promotions</h6>
+    </div>
+    <div class="fe-box">
+        <img src="~/assets/img/features/f5.png" alt="" />
+        <h6>Happy Sell</h6>
+    </div>
+    <div class="fe-box">
+        <img src="~/assets/img/features/f6.png" alt="" />
+        <h6>7/24 Support</h6>
+    </div>
+</section>
+
+<section id="newsletter" class="section-p1 section-m1">
+    <div class="newstext">
+        <h4>Sign Up For Newsletters</h4>
+        <p>
+            Get E-mail updates about our latest shop and
+            <span>special offers.</span>
+        </p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="Your email address" />
+        <button class="normal">Sign Up</button>
+    </div>
+</section>
+

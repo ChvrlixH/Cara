@@ -1,0 +1,113 @@
+﻿@model BlogViewModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<section id="blog-container">
+    <div class="blog_hero">
+        <img src="~/admin/assets/database/blogs/@Model.Blogs.First().Photo" alt="">
+    </div>
+
+    <main>
+        <h2>@Model.Blogs.First().Title</h2>
+        <div class="profile_blog">
+            <div class="profile">
+                <div class="blog-img">
+                    <img src="~/admin/assets/database/@Model.Authors.FirstOrDefault(a => a.Id == Model.Blogs.FirstOrDefault().AuthorId)?.Photo" alt="">
+                </div>
+                <div class="blog-text">
+                    <h3>@Model.Authors.FirstOrDefault(a => a.Id == Model.Blogs.FirstOrDefault().AuthorId)?.Fullname</h3>
+                    <p>@Model.Blogs.First().CreatedAt.Date</p>
+                </div>
+            </div>
+
+            <div class="blog-button">
+                    <div class="blog-btn">
+                    @Model.BCategories.FirstOrDefault(b => b.Id == Model.Blogs.FirstOrDefault().BCategoryId)?.Name
+                    </div>
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <p>@Model.Blogs.First().Description</p>
+        </div>
+
+        <div class="blog-tags">
+            <p>tags: </p>
+            <ul>
+                @foreach (var tag in Model.Tags)
+                {
+                    <li>@tag.Name</li>
+                }
+            </ul>
+        </div>
+    </main>
+</section>
+
+<section id="articles">
+    <div class="article-heading">
+        <h5>articles</h5>
+        <h6>recent blog</h6>
+    </div>
+
+    <div class="cards-container">
+        <div class="card-container one">
+            <div class="img-holder">
+                <img src="./img/blog/b2.jpg" alt="">
+                <a href="#">passion</a>
+            </div>
+            <div class="card-text">
+                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
+                <p>
+                    Kickstarter man braid godard coloring book. Raclette waistcoat
+                    selfies yr wolf chartreuse hexagon irony, godard...
+                </p>
+            </div>
+        </div>
+        <div class="card-container two">
+            <div class="img-holder">
+                <img src="./img/blog/b3.jpg" alt="">
+                <a href="#">passion</a>
+            </div>
+            <div class="card-text">
+                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
+                <p>
+                    Kickstarter man braid godard coloring book. Raclette waistcoat
+                    selfies yr wolf chartreuse hexagon irony, godard...
+                </p>
+            </div>
+        </div>
+        <div class="card-container three">
+            <div class="img-holder">
+                <img src="./img/blog/b4.jpg" alt="">
+                <a href="#">passion</a>
+            </div>
+            <div class="card-text">
+                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
+                <p>
+                    Kickstarter man braid godard coloring book. Raclette waistcoat
+                    selfies yr wolf chartreuse hexagon irony, godard...
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="loadBlog-button">
+        <a href="#" class="blog-btn">view more</a>
+    </div>
+</section>
+
+<section id="newsletter" class="section-p1 section-m1">
+    <div class="newstext">
+        <h4>Sign Up For Newsletters</h4>
+        <p>
+            Get E-mail updates about our latest shop and
+            <span>special offers.</span>
+        </p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="Your email address" />
+        <button class="normal">Sign Up</button>
+    </div>
+</section>
+

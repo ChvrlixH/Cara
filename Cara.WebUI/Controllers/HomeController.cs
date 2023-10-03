@@ -26,5 +26,6 @@ namespace Cara.WebUI.Controllers
             };
             return View(homeViewModel);
         }
+
     }
 }

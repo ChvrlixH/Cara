@@ -1,0 +1,27 @@
+﻿@model Author
+@{
+	ViewData["Title"] = "Detail";
+}
+
+<div class="col-lg-12" style="padding-left:55px">
+	<div style="width:200px; height:auto; margin-bottom: 25px">
+		<img src="~/admin/assets/database/@Model.Photo" style="width:100%; height:auto" />
+	</div>
+	<h4> <span style="color:red">Fullname:</span> @Model.Fullname</h4>
+	<h4> <span style="color:red">Profession:</span> @Model.Profession</h4>
+	<h4> <span style="color:red">Phone:</span> @Model.Phone</h4>
+	<h4> <span style="color:red">Email:</span> @Model.Email</h4>
+	<h4>
+		<span style="color:red">Blogs:</span>
+		<ol style="color:aquamarine; margin:10px; padding:10px; font-size:18px; width:max-content; background-color:darkseagreen">
+			@foreach (var blog in Model.Blogs)
+			{
+				<li style="list-style-position:inside">@blog.Title</li>
+			}
+		</ol>
+	</h4>
+
+	<a class="btn btn-info" asp-action="Index" style="margin-top:30px">Go Back</a>
+
+</div>
+

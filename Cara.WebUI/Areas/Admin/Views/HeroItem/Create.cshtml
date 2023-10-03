@@ -8,7 +8,8 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Create Hero</h4>
-            <form class="forms-sample" method="post" enctype="multipart/form-data">
+            <form class="forms-sample" method="post" enctype="multipart/form-data" id="productForm">
+                @Html.AntiForgeryToken()
                 <div class="form-group">
                     <label>Image</label>
                     <input type="file" asp-for="Photo" class="form-control file-upload-browse btn btn-primary" accept="image/*" placeholder="Image">
@@ -39,7 +40,7 @@
                     <input asp-for="isActive" class="form-control" placeholder="Choose">
                     <span class="text-danger" asp-validation-for="isActive"></span>
                 </div>
-                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button type="submit" class="btn btn-primary mr-2" id="submitBtn">Submit</button>
                 <a asp-action="Index" class="btn btn-light">Cancel</a>
             </form>
         </div>
