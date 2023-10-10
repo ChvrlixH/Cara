@@ -7,15 +7,15 @@ public class ProductVM
 	public int Id { get; set; }
 	[Required]
 	public IFormFile? Photo { get; set; }
-	[Required, MaxLength(120)]
+	[Required, MaxLength(50)]
 	public string? Name { get; set; }
 	[Required,DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = true),Range(10,9999.99)]
 	public decimal Price { get; set; }
-	[Required,MaxLength(600)]
+	[Required,MaxLength(400)]
 	public string? Description { get; set; }
 	[Required,Range(1,5)]
 	public int Rating { get; set; }
-	[Required, MaxLength(80)]
+	[Required, MaxLength(60)]
 	public string? Owner { get; set; }
 	public int PCategoryId { get; set; }
 	[Required]

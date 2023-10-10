@@ -59,6 +59,7 @@ namespace Cara.DataAccess.Contexts
 		{
 			modelBuilder.Entity<PCategory>().HasQueryFilter(pc => !pc.IsDeleted);
 			modelBuilder.Entity<BCategory>().HasQueryFilter(pc => !pc.IsDeleted);
+
 			base.OnModelCreating(modelBuilder);
 		}
 

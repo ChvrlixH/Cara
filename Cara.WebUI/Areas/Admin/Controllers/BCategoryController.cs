@@ -3,8 +3,6 @@ using Cara.DataAccess.Contexts;
 using Cara.DataAccess.Repositories.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Text.RegularExpressions;
 
 namespace Cara.WebUI.Areas.Admin.Controllers
 {
@@ -13,7 +11,6 @@ namespace Cara.WebUI.Areas.Admin.Controllers
 	public class BCategoryController : Controller
 	{
 		private IBCategoryRepository _repository;
-
 		public BCategoryController(IBCategoryRepository repository)
 		{
 			_repository = repository;
@@ -118,7 +115,7 @@ namespace Cara.WebUI.Areas.Admin.Controllers
 			BCategory category = await _repository.GetAsync(id);
 			if (category == null) { return NotFound(); }
 
-			category.IsDeleted = true;
+			await _repository.DeleteCategoryAndRelatedBlogsAsync(category);
 
 			await _repository.SaveAsync();
 			return RedirectToAction(nameof(Index));

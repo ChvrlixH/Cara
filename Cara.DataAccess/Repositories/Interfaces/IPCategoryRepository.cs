@@ -7,4 +7,5 @@ public interface IPCategoryRepository : IRepository<PCategory>
 	public bool AnyAsync(PCategory editedCategory);
 	Task<List<PCategory>> ListAsync();
 	Task<PCategory> FirstInclude(int id);
+    Task DeleteCategoryAndRelatedProductsAsync(PCategory category);
 }

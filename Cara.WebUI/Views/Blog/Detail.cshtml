@@ -17,7 +17,7 @@
                 </div>
                 <div class="blog-text">
                     <h3>@Model.Authors.FirstOrDefault(a => a.Id == Model.Blogs.FirstOrDefault().AuthorId)?.Fullname</h3>
-                    <p>@Model.Blogs.First().CreatedAt.Date</p>
+                    <p>@Model.Blogs.First().CreatedAt.ToShortDateString()</p>
                 </div>
             </div>
 
@@ -50,50 +50,13 @@
         <h6>recent blog</h6>
     </div>
 
-    <div class="cards-container">
-        <div class="card-container one">
-            <div class="img-holder">
-                <img src="./img/blog/b2.jpg" alt="">
-                <a href="#">passion</a>
-            </div>
-            <div class="card-text">
-                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
-                <p>
-                    Kickstarter man braid godard coloring book. Raclette waistcoat
-                    selfies yr wolf chartreuse hexagon irony, godard...
-                </p>
-            </div>
-        </div>
-        <div class="card-container two">
-            <div class="img-holder">
-                <img src="./img/blog/b3.jpg" alt="">
-                <a href="#">passion</a>
-            </div>
-            <div class="card-text">
-                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
-                <p>
-                    Kickstarter man braid godard coloring book. Raclette waistcoat
-                    selfies yr wolf chartreuse hexagon irony, godard...
-                </p>
-            </div>
-        </div>
-        <div class="card-container three">
-            <div class="img-holder">
-                <img src="./img/blog/b4.jpg" alt="">
-                <a href="#">passion</a>
-            </div>
-            <div class="card-text">
-                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
-                <p>
-                    Kickstarter man braid godard coloring book. Raclette waistcoat
-                    selfies yr wolf chartreuse hexagon irony, godard...
-                </p>
-            </div>
-        </div>
+    <input hidden value="@ViewBag.BlogsDetailCount" id="blogDetailCount" />
+    <div class="cards-container" id="blogDetailList">
+        @await Component.InvokeAsync("Blog")    
     </div>
 
     <div class="loadBlog-button">
-        <a href="#" class="blog-btn">view more</a>
+        <button type="button" style="cursor:pointer;" id="loadMoreDetailBtn" class="blog-btn">view more</button>
     </div>
 </section>
 

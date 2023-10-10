@@ -4,7 +4,7 @@
 }
 
 <section id="page-header" class="blog-header darkmode-ignore">
-    @foreach (var banner in Model.BlogBanners)
+    @foreach (var banner in Model.BlogBanners.Where(b => b.IsActive))
     {
     <img src="~/admin/assets/database/headbanners/@banner.Photo" alt="Header Image" class="header-image" />
     <h2>@banner.Title</h2>
@@ -14,23 +14,23 @@
 
 <section id="blog-category" class="section-p1">
     <div class="category-selector">
-        <a class="categoryBlog selected" href="/Blog">All</a>
-        @foreach (var item in Model.BCategories)
+        <div class="categoryBlog selected allCategoryBlog" onclick="filterBlogs(null)">All</div>
+        @foreach (var category in Model.BCategories)
         {
-            <a class="categoryBlog" href="/Blog/Category?categoryId=@item.Id">
-                @item.Name
-            </a>
+            <div class="categoryBlog" data-category-id="@category.Id" onclick="filterBlogs(@category.Id)">
+                @category.Name
+            </div>
         }
     </div>
     <div class="selected-category">Selected Category: <span id="selected">All</span></div>
 </section>
 
 
-<section id="blog" class="darkmode-ignore">
+<section id="blog">
      <div id="blog-content">
         @foreach (var item in Model.Blogs)
         {
-            <div class="blog-box">
+            <div class="blog-box" data-category="@item.BCategoryId">
                 <div class="blog-img">
                     <img src="~/admin/assets/database/blogs/@item.Photo" alt="" />
                 </div>
@@ -54,10 +54,9 @@
 </div>
 </section>
 
+
 <section id="pagination" class="section-p1">
-    <a href="#">1</a>
-    <a href="#">2</a>
-    <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
+  
 </section>
 
 <section id="newsletter" class="section-p1 section-m1">
@@ -69,8 +68,45 @@
         </p>
     </div>
     <div class="form">
-        <input type="text" placeholder="Your email address" />
-        <button class="normal">Sign Up</button>
+        @await Component.InvokeAsync("Subscribe")
     </div>
 </section>
+
+
+<script>
+    // Sayfa yüklendiğinde "All" düğmesini seçili yap
+    document.querySelector('.selected').classList.add('changeBlog');
+
+    function hideAllBlogs() {
+        document.querySelectorAll('.blog-box').forEach(function (blog) {
+            blog.style.display = 'none';
+        });
+    }
+
+    // Kategoriye göre ürünleri filtrelemek için bu fonksiyon kullanılır
+    function filterBlogs(categoryId) {
+        hideAllBlogs(); // Tüm ürünleri gizle
+
+        // Tüm ürünleri göstermek için "All" seçeneği
+        if (categoryId === null) {
+            document.querySelectorAll('.blog-box').forEach(function (blog) {
+                blog.style.display = 'flex';
+            });
+            return;
+        }
+
+        // Seçilen kategoriye ait ürünleri göster
+        document.querySelectorAll('.blog-box[data-category="' + categoryId + '"]').forEach(function (blog) {
+            blog.style.display = 'flex';
+        });
+
+        // Seçilen kategoriye ait düğmeyi seçili yap
+        document.querySelectorAll('.categoryBlog').forEach(function (blogDiv) {
+            blogDiv.classList.remove('changeBlog');
+        });
+        document.querySelector('.categoryBlog[data-category-id="' + categoryId + '"]').classList.add('changeBlog');
+    }
+
+</script>
+
 

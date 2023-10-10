@@ -8,8 +8,10 @@ namespace Cara.DataAccess.Repositories.Implementations;
 
 public class PCategoryRepository : Repository<PCategory>, IPCategoryRepository
 {
-	public PCategoryRepository(AppDbContext context) : base(context)
+    private readonly AppDbContext _context;
+    public PCategoryRepository(AppDbContext context) : base(context)
 	{
+		_context = context;
 	}
 
 	public bool AnyAsync(PCategory editedCategory)
@@ -18,7 +20,18 @@ public class PCategoryRepository : Repository<PCategory>, IPCategoryRepository
 		return _table.Any(t => t.Name == cleanedName);
 	}
 
-	public async Task<PCategory> FirstInclude(int id)
+    public async Task DeleteCategoryAndRelatedProductsAsync(PCategory category)
+    {
+        var relatedProducts = _context.Products.Where(b => b.PCategoryId == category.Id);
+        _context.Products.RemoveRange(relatedProducts);
+
+        category.IsDeleted = true;
+        _context.PCategories.Update(category);
+
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task<PCategory> FirstInclude(int id)
 	{
 		return await _table.Include(c => c.Products).FirstOrDefaultAsync(c => c.Id == id && !c.IsDeleted);
 	}

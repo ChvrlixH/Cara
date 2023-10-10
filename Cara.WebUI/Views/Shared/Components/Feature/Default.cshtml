@@ -1,0 +1,13 @@
+﻿@model List<Feature>
+@{
+    Layout = null;
+}
+
+
+@foreach (Feature item in Model)
+{
+	<div class="fe-box">
+		<img src="~/admin/assets/database/@item.Photo" alt="" />
+		<h6>@item.Title</h6>
+	</div>
+}

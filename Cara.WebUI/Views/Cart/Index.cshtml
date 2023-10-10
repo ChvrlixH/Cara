@@ -4,7 +4,7 @@
 }
 
 <section id="page-header" class="about-header darkmode-ignore">
-    @foreach (var banner in Model.CartBanners)
+    @foreach (var banner in Model.CartBanners.Where(b => b.IsActive))
     {
     <img src="~/admin/assets/database/headbanners/@banner.Photo" alt="Header Image" class="header-image" />
     <h2>@banner.Title</h2>

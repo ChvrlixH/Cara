@@ -46,7 +46,7 @@ const searchPro = () => {
     }
 };
 
-// Category Shop
+//Category Shop
 
 const buttonEnable = document.querySelectorAll(".button-value");
 
@@ -57,46 +57,29 @@ buttonEnable.forEach((buttons) => {
     });
 });
 
+
+
+
 // Category Blog
 
 document.addEventListener("DOMContentLoaded", function () {
     const selectedCategory = document.getElementById("selected");
-    const blogContent = document.getElementById("blog-content"); // Blog içeriğinin gösterildiği alan
 
-    // Sayfa yüklendiğinde "All" kategorisi seçili olsun
-    const initialCategory = document.querySelector(".selected");
-    selectedCategory.textContent = initialCategory.textContent;
+    if (selectedCategory) {
+        // Öğe varsa içeriğine erişmeye çalışabilirsiniz
+        const initialCategory = document.querySelector(".selected");
+        selectedCategory.textContent = initialCategory ? initialCategory.textContent : "";
+    }
 
     const blogCategories = document.querySelectorAll(".categoryBlog");
 
     blogCategories.forEach(category => {
-        category.addEventListener("click", (event) => {
-            event.preventDefault(); // Sayfa yeniden yüklenmesini engellemek için önlem alın
-
-            // Diğer kategorilerden "selected" sınıfını kaldırın
+        category.addEventListener("click", () => {
             blogCategories.forEach(c => c.classList.remove("selected"));
 
-            // Tıklanan kategoriye "selected" sınıfını ekleyin
             category.classList.add("selected");
-            selectedCategory.textContent = category.textContent;
-
-            // Burada AJAX isteği yaparak kategoriye özgü blog içeriğini alabilirsiniz
-            const href = category.getAttribute("href"); // Kategoriye özgü URL'yi alın
-
-            if (href === "/Blog") {
-                // "All" kategorisine tıklanırsa, tüm blogları göstermek için Blog'un ana sayfasına yönlendirin
-                window.location.href = href;
-            } else {
-                // Diğer kategorilere tıklanırsa, kategoriye özgü blog içeriğini yükleyin
-                fetch(href)
-                    .then(response => response.text())
-                    .then(data => {
-                        blogContent.innerHTML = data; // Blog içeriğini güncelleyin
-                        window.history.pushState({}, '', href); // URL'yi güncelleyin
-                    })
-                    .catch(error => {
-                        console.error('Hata:', error);
-                    });
+            if (selectedCategory) {
+                selectedCategory.textContent = category.textContent;
             }
         });
     });
@@ -104,7 +87,88 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    
+
+
+// Product marquee
+
+//document.querySelectorAll('.scrollable-text').forEach(function (textElement) {
+//    if (textElement.scrollWidth > textElement.clientWidth) {
+//        textElement.classList.add('marquee');
+//    }
+//});
+
+//Blog Detail LoadMore
+document.addEventListener("DOMContentLoaded", function () {
+    const loadMoreDetailBtn = document.getElementById("loadMoreDetailBtn");
+    const blogDetailList = document.getElementById("blogDetailList");
+    const blogDetailCountElement = document.getElementById("blogDetailCount");
+
+    if (blogDetailCountElement) {
+        const blogDetailCount = blogDetailCountElement.value;
+        let skip = 3;
+        loadMoreDetailBtn.addEventListener("click", function () {
+            console.log(skip);
+            fetch(`/Blog/LoadMoreDetail?skip=${skip}`).then(response => response.text())
+                .then(data => {
+                    blogDetailList.innerHTML += data;
+                })
+
+            skip += 3;
+
+            if (skip >= blogDetailCount) {
+                loadMoreDetailBtn.remove();
+            }
+        })
+    }
+});
+
+
+
+
+
+
+
+
+
+
+//Product Category
+
+
+
+
+
+
+
+//Product Load More
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const loadMoreProductBtn = document.getElementById("loadMoreProductBtn");
+    const productListLoadMore = document.getElementById("pro-container");
+    const productCountElement = document.getElementById("productCountLoadMore");
+
+    if (productCountElement) {
+        const productCountLoadMore = productCountElement.value;
+        let skip = 8;
+        const increment = 8;
+        loadMoreProductBtn.addEventListener("click", function () {
+            console.log(skip);
+            fetch(`/Shop/LoadMoreProduct?skip=${skip}`).then(response => response.text())
+                .then(data => {
+                    productListLoadMore.innerHTML += data;
+                })
+
+            skip += increment;
+
+            if (skip >= productCountLoadMore) {
+                loadMoreProductBtn.remove();
+            }
+        })
+    }
+});
 
 
 
@@ -119,16 +183,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Navbar
 
-const navbarLinks = document.querySelectorAll("#navbar a");
+/*const navbarLinks = document.querySelectorAll("#navbar a");*/
 
 document.addEventListener("DOMContentLoaded", () => {
-    const currentPage = window.location.pathname.split("/").pop();
-    navbarLinks.forEach((link) => {
-        if (link.getAttribute("href") === currentPage) {
-            link.classList.add("active");
-        }
-    });
+    const currentPage = window.location.pathname === "/"
+        ? document.querySelector(`#navbar [data-page="Home"]`)
+        : document.querySelector(`#navbar [data-page="${window.location.pathname.split("/").pop()}"]`);
+
+    if (currentPage) {
+        currentPage.classList.add("active");
+    }
 });
+
+
 
 // Contact us
 
@@ -142,13 +209,13 @@ faqItems.forEach((faqs) => {
 
 // JavaScript dosyası
 
-// Verileri çereze yazma
+// Verileri cookieden alma 
 function saveFormDataToCookie(data) {
     var jsonData = JSON.stringify(data);
     document.cookie = "formData=" + jsonData + "; expires=" + getCookieExpirationDate(24); // 24 saat
 }
 
-// Verileri çerezden okuma
+// Verileri cookieden oxuma
 function loadFormDataFromCookie() {
     var cookieValue = getCookie("formData");
     if (cookieValue) {
@@ -157,14 +224,14 @@ function loadFormDataFromCookie() {
     return null;
 }
 
-// Çerez süresini hesaplama
+// Cookienin vaxtını hesablama
 function getCookieExpirationDate(hours) {
     var date = new Date();
     date.setTime(date.getTime() + (hours * 60 * 60 * 1000));
     return date.toUTCString();
 }
 
-// Çerezi alma
+// Cookieni alma
 function getCookie(name) {
     var cookies = document.cookie.split(';');
     for (var i = 0; i < cookies.length; i++) {
@@ -177,6 +244,29 @@ function getCookie(name) {
 }
 
 // Formu yükleme işlemi
+// Form verilerini cookielere kaydetme işlevi
+function saveFormDataToCookie(data) {
+    // Verileri JSON formatında cookielere kaydet
+    document.cookie = "formData=" + JSON.stringify(data);
+}
+
+// Cookielerden form verilerini yükleme işlevi
+function loadFormDataFromCookie() {
+    // "formData" adlı cookielerden verileri alın
+    var cookieValue = document.cookie
+        .split('; ')
+        .find(row => row.startsWith("formData="));
+
+    // JSON formatında verileri tehlil et
+    if (cookieValue) {
+        var data = cookieValue.split("=")[1];
+        return JSON.parse(decodeURIComponent(data));
+    }
+
+    return null;
+}
+
+// Formu otomatik olaraq yükleme işlevi
 function loadForm() {
     var formData = loadFormDataFromCookie();
 
@@ -188,55 +278,45 @@ function loadForm() {
     }
 }
 
-// Sayfa yüklendiğinde formu otomatik olarak yükle
-window.onload = function () {
+// Sayfa yüklendiğinde formu otomatik olaraq yükle
+window.addEventListener("load", function () {
     loadForm();
-};
-
-// Formu gönderildiğinde bu işlevi çağırın
-document.getElementById("myForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // Sayfanın yeniden yüklenmesini önleyin
-
-    // Form verilerini alın
-    var name = document.getElementById("NameContact").value;
-    var email = document.getElementById("EmailContact").value;
-    var subject = document.getElementById("SubjectContact").value;
-    var message = document.getElementById("MessageContact").value;
-
-    // Verileri çerezlere kaydedin
-    var data = {
-        Name: name,
-        Email: email,
-        Subject: subject,
-        Message: message
-    };
-    saveFormDataToCookie(data);
-
-    if (!name || !email || !subject || !message) {
-        alert("Fill in all fields!");
-        return; // Veriler eksikse işlemi durdurun
-    }
-
-    // POST isteği gönderin
-    fetch("https://fakestoreapi.com/products", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-        .then(response => {
-            if (response.ok) {
-                alert("Form data submitted successfully.");
-                console.log(JSON.stringify(data));
-            } else {
-                alert("Form data submission failed.");
-            }
-        })
-        .catch(error => {
-            console.error("Error:", error);
-        });
 });
+
+// Form gönderildiğinde bu işlevi çağır
+var myForm = document.getElementById("myForm");
+if (myForm) {
+    myForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Sayfanın yeniden yüklenmesini önle
+
+        // Form verilerini al
+        var name = document.getElementById("NameContact").value;
+        var email = document.getElementById("EmailContact").value;
+        var subject = document.getElementById("SubjectContact").value;
+        var message = document.getElementById("MessageContact").value;
+
+        // Verileri cookielere kaydet
+        var data = {
+            Name: name,
+            Email: email,
+            Subject: subject,
+            Message: message
+        };
+        saveFormDataToCookie(data);
+
+        if (!name || !email || !subject || !message) {
+            alert("Tüm alanları doldurun!");
+            return; // Veriler eksikse prosesi durdur
+        }
+        /*window.location.href = "";*/
+
+        document.getElementById("NameContact").value = "";
+        document.getElementById("EmailContact").value = "";
+        document.getElementById("SubjectContact").value = "";
+        document.getElementById("MessageContact").value = "";
+
+    });
+}
 
 
 
@@ -244,7 +324,7 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
 
 //Add-To-Cart
 
-// Sepet ürünleri için dizi
+// Sebet ürünleri üçün boş array
 const cartItems = [];
 
 // Ürünleri silme işlevi
@@ -265,17 +345,17 @@ function removeItem(event) {
     }
 }
 
-// Miktar değişikliklerini işle
+// Miqdar değişikliklerini yoxla
 function updateQuantity(event) {
     const newName = event.target.getAttribute("data-name");
     let newQuantity = parseInt(event.target.value);
 
     if (newQuantity <= 0) {
         showAlertModal("Quantity must be at least 1.");
-        newQuantity = 1; // Minimum miktarı 1 olarak ayarla
+        newQuantity = 1; // Minimum miqdarı 1 olaraq ayarla
     } else if (newQuantity > 100) {
         showAlertModal("Maximum quantity allowed is 100.");
-        newQuantity = 100; // Maksimum miktarı 100 olarak ayarla
+        newQuantity = 100; // Maksimum miqdarı 100 olaraq ayarla
     }
 
     const itemToUpdate = cartItems.find((item) => item.name === newName);
@@ -287,7 +367,7 @@ function updateQuantity(event) {
     }
 }
 
-// Sepet HTML'ini güncelleme işlevi
+// Sebet HTML'ini güncelleme işlevi
 function updateCartHTML() {
     const cartTableBody = document.querySelector("#cart table tbody");
     const subtotalElement = document.querySelector("#subtotal table tbody");
@@ -340,13 +420,13 @@ function updateCartHTML() {
     `;
         subtotalElement.appendChild(totalRow);
 
-        // Miktar değişikliklerini dinle ve güncelle
+        // Miqdar değişikliklerini oxu ve güncelle
         const quantityInputs = document.querySelectorAll(".quantity-input");
         quantityInputs.forEach((input) => {
             input.addEventListener("change", updateQuantity);
         });
 
-        // Ürünleri silme işlevini dinle
+        // Ürünleri silme işlevini oxu
         const removeItemLinks = document.querySelectorAll(".remove-item");
         removeItemLinks.forEach((link) => {
             link.addEventListener("click", removeItem);
@@ -354,7 +434,7 @@ function updateCartHTML() {
     }
 }
 
-// Sepet miktarını güncelleme işlevi
+// Sebet miqdarını güncelleme işlevi
 function updateCartQuantity() {
     const totalQuantity = cartItems.reduce(
         (total, item) => total + item.quantity,
@@ -367,14 +447,14 @@ function updateCartQuantity() {
     });
 }
 
-// Sayfa yüklendiğinde sepeti güncelle ve navbar'daki miktarı ayarla
+// Sayfa yüklendiğinde sebeti güncelle ve navbar'daki miqdarı ayarla
 window.addEventListener("load", () => {
     loadCartItemsFromLocalStorage();
     updateCartHTML();
     updateCartQuantity();
 });
 
-// Shop sayfasında "Add To Cart" butonlarına tıklama işlemi
+// Shop sayfasında "Add To Cart" butonlarına klikleme işlemi
 document.addEventListener("DOMContentLoaded", function () {
     const addToCartButtons = document.querySelectorAll("#prodetails .normal");
 
@@ -399,7 +479,7 @@ function showAlertModal(message) {
     modal.appendChild(modalContent);
     document.body.appendChild(modal);
 
-    // 3 saniye sonra modalı kapat
+    // 3 saniye sonra modalı bağla
     setTimeout(() => {
         document.body.removeChild(modal);
     }, 1800);
@@ -407,7 +487,7 @@ function showAlertModal(message) {
 
 
 
-// "Add To Cart" butonuna tıklanınca çalışacak işlev
+// "Add To Cart" butonuna kliklenende çalışacaq işlev
 function addToCartClicked(event) {
     const button = event.target;
     const productSection = button.closest("#prodetails");
@@ -440,11 +520,11 @@ function addToCartClicked(event) {
     ).value;
 
     if (selectedSize === "Select Size") {
-        // Hata durumunda input alanını işaretleyelim
+        // Error veziyyetinde input alanını işaretle
         productSection.querySelector(".single-pro-details select").classList.add("selectSize-error");
         return;
     } else {
-        // Hata yoksa kırmızı işareti kaldıralım
+        // Error yoxdursa qırmızı işareti qaldır
         productSection.querySelector(".single-pro-details select").classList.remove("selectSize-error");
     }
 
@@ -459,7 +539,7 @@ function addToCartClicked(event) {
     );
 }
 
-// Sepete ürün ekleme işlev
+// Sebete ürün elave etme işlev
 function addToCart(productName, price, quantity, image, title) {
     const existingItem = cartItems.find((item) => item.name === productName);
 
@@ -485,12 +565,12 @@ function addToCart(productName, price, quantity, image, title) {
     updateCartQuantity();
 }
 
-// Sepet ürünlerini yerel depolamaya kaydetme
+// Sebet ürünlerini daxili depolamaya kaydetme
 function saveCartItemsToLocalStorage() {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
 
-// Sepet ürünlerini yerel depolamadan yükleme
+// Sebet ürünlerini daxili depolamadan yükleme
 function loadCartItemsFromLocalStorage() {
     const storedCartItems = localStorage.getItem("cartItems");
     if (storedCartItems) {
@@ -501,7 +581,7 @@ function loadCartItemsFromLocalStorage() {
     }
 }
 
-// Sepeti sıfırla ve mesaj göster
+// Sebeti sıfırla ve mesaj göster
 function checkout() {
     if (cartItems.length > 0) {
         cartItems.length = 0;
@@ -510,12 +590,12 @@ function checkout() {
         updateCartQuantity();
         showOrderConfirmationMessage();
     } else {
-        // Sepet boşsa işlem yapma veya bir hata mesajı göster
+        // Sebet boşsa işlem etme veya bir error mesajı göster
         showAlertModal("Your cart is empty.");
     }
 }
 
-// Sipariş onay mesajını göster
+// Sifariş onay mesajını göster
 function showOrderConfirmationMessage() {
     const modal = document.createElement("div");
     modal.className = "order-modal";

@@ -1,0 +1,10 @@
+﻿
+@{
+	Layout = null;
+}
+
+
+<form method="post" action="/subscribe/create" target="_blank" novalidate style="width:100%; display:flex">
+	<input name="Email" asp-area="Admin" asp-controller="Subscribe" asp-action="Create" type="text" placeholder="Your email address" />
+	<button name="subscribe" type="submit" class="normal">Sign Up</button>
+</form>

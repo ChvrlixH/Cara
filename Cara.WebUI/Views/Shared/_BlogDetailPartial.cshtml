@@ -1,0 +1,18 @@
+﻿@model List<Blog>
+
+
+@foreach (Blog blog in Model)
+{
+	<div class="card-container">
+			<div class="img-holder">
+				<img src="~/admin/assets/database/blogs/@blog.Photo" alt="">
+			<a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">@blog.BCategory.Name</a>
+			</div>
+			<div class="card-text">
+				<h4>@blog.Title</h4>
+				<p>
+					@blog.Description
+				</p>
+			</div>
+		</div>
+}

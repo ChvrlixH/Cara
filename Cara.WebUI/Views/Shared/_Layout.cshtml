@@ -18,27 +18,27 @@
 
         <div>
             <ul id="navbar">
-                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                <li><a asp-controller="Shop" asp-action="Index">Shop</a></li>
-                <li><a asp-controller="Blog" asp-action="Index">Blog</a></li>
-                <li><a asp-controller="About" asp-action="Index">About</a></li>
-                <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+                <li><a asp-controller="Home" asp-action="Index" data-page="Home">Home</a></li>
+                <li><a asp-controller="Shop" asp-action="Index" data-page="Shop">Shop</a></li>
+                <li><a asp-controller="Blog" asp-action="Index" data-page="Blog">Blog</a></li>
+                <li><a asp-controller="About" asp-action="Index" data-page="About">About</a></li>
+                <li><a asp-controller="Contact" asp-action="Index" data-page="Contact">Contact</a></li>
                 @if(isAuthenticated)
                 { 
                     <li id="lg-bag" class="usernameSpan">
                          @{
                             var truncatedUsername = username.Length > 7 ? username.Substring(0, 7) + new string('*', 4) : username;
                           }
-                        @truncatedUsername<a asp-controller="Auth" asp-action="Logout"><i class="far fa-sign-out" style="margin-left:5px"></i></a>
+                        @truncatedUsername<a data-page="Auth" asp-controller="Auth" asp-action="Logout"><i class="far fa-sign-out" style="margin-left:5px"></i></a>
                     </li>
                 }
                 else{
                 <li id="lg-bag">
-                    <a asp-controller="Auth" asp-action="Login"><i class="far fa-user-alt"></i></a>
+                        <a data-page="Auth" asp-controller="Auth" asp-action="Login"><i class="far fa-user-alt"></i></a>
                 </li>
                 }
                 <li id="lg-bag" class="shoppingCard">
-                    <a asp-controller="Cart" asp-action="Index">
+                    <a data-page="Cart" asp-controller="Cart" asp-action="Index">
                         <i class="far fa-shopping-bag">
                             <span class="quantity">0</span>
                         </i>
@@ -54,13 +54,13 @@
                     @{
                         var truncatedUsername = username.Length > 7 ? username.Substring(0, 7) + new string('*', 4) : username;
                     }
-                    @truncatedUsername<a asp-controller="Auth" asp-action="Logout"><i class="far fa-sign-out" style="margin-left:5px"></i></a>
+                    @truncatedUsername<a data-page="Auth" asp-controller="Auth" asp-action="Logout"><i class="far fa-sign-out" style="margin-left:5px"></i></a>
                 </span>
                 }
                 else{
-            <a asp-controller="Auth" asp-action="Login"><i class="far fa-user-alt"></i></a>
+                <a data-page="Auth" asp-controller="Auth" asp-action="Login"><i class="far fa-user-alt"></i></a>
             }
-            <a asp-controller="Cart" asp-action="Index">
+            <a data-page="Cart" asp-controller="Cart" asp-action="Index">
                 <i class="far fa-shopping-bag">
                     <span class="quantity">0</span>
                 </i>
@@ -93,10 +93,10 @@
 
       <div class="col">
         <h4>About</h4>
-        <a href="about.html">About Us</a>
-        <a href="delivery.html">Delivery Information</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms & Conditions</a>
+        <a asp-controller="About" asp-action="Index" data-page="About">About Us</a>
+        <a asp-controller="Delivery" asp-action="Index">Delivery Information</a>
+            <a asp-controller="Privacy" asp-action="Index">Privacy Policy</a>
+        <a asp-controller="Terms" asp-action="Index">Terms & Conditions</a>
         <a
           href="mailto:azmoodcompany@gmail.com?subject=Contact&body=Hello,%0AI need help."
           target="_blank"
@@ -106,11 +106,11 @@
 
       <div class="col">
         <h4>My Account</h4>
-        <a href="#">Sign In</a>
-        <a href="cart.html">View Cart</a>
+        <a asp-controller="Auth" asp-action="Login">Sign In</a>
+        <a asp-controller="Cart" asp-action="Index">View Cart</a>
         <a href="cart.html">My Wishlist</a>
         <a href="cart.html">Track My Order</a>
-        <a href="faq.html">Help</a>
+        <a asp-controller="Faq" asp-action="Index">Help</a>
       </div>
 
       <div class="col install">

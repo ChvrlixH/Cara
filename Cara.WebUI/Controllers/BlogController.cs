@@ -15,17 +15,21 @@ namespace Cara.WebUI.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            BlogViewModel blogViewModel = new()
+			IQueryable<Blog> blogs = _context.Blogs.AsQueryable();
+
+			BlogViewModel blogViewModel = new()
             {
-                Blogs = _context.Blogs.AsNoTracking(),
-                BCategories = _context.BCategories.AsNoTracking(),
-                Authors = _context.Authors.AsNoTracking(),
-                Tags = _context.Tags.AsNoTracking(),
-                BlogBanners = _context.BlogBanners.AsNoTracking()
+                Blogs = await _context.Blogs.Where(b=>!b.BCategory.IsDeleted).ToListAsync(),
+                BCategories = await _context.BCategories.Include(b=>b.Blogs).Where(b=>!b.IsDeleted).ToListAsync(),
+                Authors = await _context.Authors.ToListAsync(),
+                Tags = await _context.Tags.ToListAsync(),
+                BlogBanners = await _context.BlogBanners.ToListAsync()
             };
-            return View(blogViewModel);
+
+
+			return View(blogViewModel);
         }
 
         public async Task<IActionResult> Detail(int? id)
@@ -49,42 +53,32 @@ namespace Cara.WebUI.Controllers
                 Authors = _context.Authors.AsNoTracking(),
                 Tags = blog.BlogTags.Select(bt => bt.Tag).ToList()
             };
-            return View(blogViewModel);
+
+			ViewBag.BlogsDetailCount = _context.Blogs.Count();
+
+			return View(blogViewModel);
         }
 
-        public IActionResult Category(int? categoryId)
+        public IActionResult FilterProducts(int? categoryId)
         {
-            if (categoryId == null)
+            var categories = _context.BCategories.ToList();
+            var blogs = categoryId == null ? _context.Blogs.ToList() : _context.Blogs.Where(b => b.BCategoryId == categoryId).ToList();
+
+
+            var viewModel = new BlogViewModel
             {
-                // Kategori belirtilmediyse, tüm blogları göstermek için tüm blogları alın
-                var allBlogs = _context.Blogs.ToList();
+                BCategories = categories,
+                Blogs = blogs
+            };
 
-                var blogViewModel = new BlogViewModel
-                {
-                    Blogs = allBlogs,
-                    BCategories = _context.BCategories.ToList(),
-                    // Diğer özellikleri de ekleyebilirsiniz
-                };
+            return View("Index", viewModel);
+        }
 
-                return View("Index", blogViewModel); // Index.cshtml görünümünü döndürün
-            }
-            else
-            {
-                // Belirli bir kategoriye ait blogları alın
-                var blogsInCategory = _context.Blogs
-                    .Where(b => b.BCategoryId == categoryId)
-                    .ToList();
+        public IActionResult LoadMoreDetail(int skip)
+        {
+            var blogs = _context.Blogs.Include(b => b.BCategory).OrderByDescending(b => b.ModifiedAt).Skip(skip).Take(3).ToList();
 
-                var blogViewModel = new BlogViewModel
-                {
-                    Blogs = blogsInCategory,
-                    BCategories = _context.BCategories.ToList(),
-                    // Diğer özellikleri de ekleyebilirsiniz
-                };
-
-                return View("Index", blogViewModel);
-            }
-
+			return PartialView("_BlogDetailPartial", blogs);
         }
 
     }

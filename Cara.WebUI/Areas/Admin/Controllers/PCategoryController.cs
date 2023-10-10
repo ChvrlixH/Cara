@@ -118,7 +118,7 @@ namespace Cara.WebUI.Areas.Admin.Controllers
             PCategory category = await _repository.GetAsync(id);
             if (category == null) { return NotFound(); }
 
-            category.IsDeleted = true;
+            await _repository.DeleteCategoryAndRelatedProductsAsync(category);
 
             await _repository.SaveAsync();
             return RedirectToAction(nameof(Index));

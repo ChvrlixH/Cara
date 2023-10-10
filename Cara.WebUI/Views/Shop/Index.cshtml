@@ -1,321 +1,118 @@
 ﻿@model ShopViewModel
 @{
-    ViewData["Title"] = "Index";
+	ViewData["Title"] = "Index";
 }
 
-  <section id="page-header" class="darkmode-ignore">
-    @foreach (var banner in Model.ShopBanners)
-    {
-        <img src="~/admin/assets/database/headbanners/@banner.Photo" alt="Header Image" class="header-image" />
-        <h2>@banner.Title</h2>
-        <p>@banner.Description</p>
-    }
-    </section>
+<section id="page-header" class="darkmode-ignore">
+	@foreach (var banner in Model.ShopBanners.Where(b => b.IsActive))
+	{
+		<img src="~/admin/assets/database/headbanners/@banner.Photo" alt="Header Image" class="header-image" />
+		<h2>@banner.Title</h2>
+		<p>@banner.Description</p>
+	}
+</section>
 
-    <section id="search" class="section-p1">
-      <div>
-        <form>
-          <i class="fas fa-search"></i>
-          <input
-            type="text"
-            id="search-item"
-            placeholder="Search products"
-            onkeyup="searchPro()"
-          />
-        </form>
-      </div>
-    </section>
+<section id="search" class="section-p1">
+	<div>
+		<form>
+			<i class="fas fa-search"></i>
+			<input type="text"
+				   id="search-item"
+				   placeholder="Search products"
+				   onkeyup="searchPro()" />
+		</form>
+	</div>
+</section>
 
-    <section id="category_filter" class="section-p1">
-      <div id="buttons">
-        <button class="button-value btnActive">All</button>
-        <button class="button-value">Topwear</button>
-        <button class="button-value">Bottomwear</button>
-        <button class="button-value">Jacket</button>
-        <button class="button-value">Other</button>
-      </div>
-    </section>
+<section id="category_filter" class="section-p1">
+	<div id="buttons">
+		<button class="button-value btnActive" onclick="filterProducts(null)">All<span>(@ViewBag.ProductsCount)</span></button>
+		@foreach (var category in Model.PCategories)
+		{
+			<button class="button-value" data-categoryShop-id="@category.Id" onclick="filterProducts(@category.Id)">
+				@category.Name
+				<span>(@category.Products.Count)</span>
+			</button>
+		}
+	</div>
+</section>
 
-    <section id="product1" class="section-p1">
-      <div class="pro-container" id="pro-container">
-        <div class="pro" onclick="window.location.href='sproduct.html';">
-          <img src="~/assets/img/products/f1.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Caartoon Astronaut T-Shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct.html';">
-          <img src="~/assets/img/products/f2.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Caartoon Astronaut T-Shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct.html';">
-          <img src="~/assets/img/products/f3.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Caartoon Astronaut T-Shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct.html';">
-          <img src="~/assets/img/products/f4.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Caartoon Astronaut T-Shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct.html';">
-          <img src="~/assets/img/products/f5.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Caartoon Astronaut T-Shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct.html';">
-          <img src="~/assets/img/products/f6.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Caartoon Astronaut T-Shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct.html';">
-          <img src="~/assets/img/products/f7.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Asimanin T-Shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct.html';">
-          <img src="~/assets/img/products/f8.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Caartoon Astronaut T-Shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct.html';">
-          <img src="~/assets/img/products/n1.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Caartoon Astronaut T-Shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct.html';">
-          <img src="~/assets/img/products/n2.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Caartoon Astronaut T-Shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct.html';">
-          <img src="~/assets/img/products/n3.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Caartoon Astronaut T-Shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct.html';">
-          <img src="~/assets/img/products/n4.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Caartoon Astronaut T-Shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct.html';">
-          <img src="~/assets/img/products/n5.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Caartoon Astronaut T-Shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct.html';">
-          <img src="~/assets/img/products/n6.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Caartoon Astronaut T-Shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct.html';">
-          <img src="~/assets/img/products/n7.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Caartoon Astronaut T-Shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct.html';">
-          <img src="~/assets/img/products/n8.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Caartoon Astronaut T-Shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-        </div>
-      </div>
-    </section>
+<section id="product1" class="section-p1">
+	<input hidden value="@ViewBag.ProductCount" id="productCountLoadMore" />
+	<div class="pro-container" id="pro-container">
+		@foreach (var product in Model.Products)
+{
+	<div class="pro" data-categoryShop="@product.PCategoryId" style="height:418.61px;">
+		<img src="~/admin/assets/database/products/mainimg/@product.Photo" style="height:72.5%;" alt="" />
+		<div class="des">
+			<span class="scrollable-text">@product.Owner</span>
+			<h5 class="scrollable-text">@product.Name</h5>
+			<div class="star">
+				@for (int i = 0; i < product.Rating; i++)
+				{
+					<i class="fas fa-star"></i>
 
-    <section id="pagination" class="section-p1">
-      <a href="#">1</a>
-      <a href="#">2</a>
-      <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
-    </section>
+				}
+			</div>
+			<h4>$@product.Price</h4>
+		</div>
+		<a asp-controller="Shop" asp-action="Detail" asp-route-productId="@product.Id"><i class="fal fa-shopping-cart cart"></i></a>
+	</div>
 
-    <section id="newsletter" class="section-p1 section-m1">
-      <div class="newstext">
-        <h4>Sign Up For Newsletters</h4>
-        <p>
-          Get E-mail updates about our latest shop and
-          <span>special offers.</span>
-        </p>
-      </div>
-      <div class="form">
-        <form method="post" action="/subscribe/create" target="_blank" novalidate style="width:100%; display:flex">
-            <input name="Email" asp-area="Admin" asp-controller="Subscribe" asp-action="Create" type="text" placeholder="Your email address" />
-            <button name="subscribe" type="submit" class="normal">Sign Up</button>
-        </form>
-      </div>
-    </section>
+}
+	</div>
+</section>
+
+<section id="pagination" class="section-p1">
+	<a id="loadMoreProductBtn">Load More</a>
+	@*<a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>*@
+</section>
+
+<section id="newsletter" class="section-p1 section-m1">
+	<div class="newstext">
+		<h4>Sign Up For Newsletters</h4>
+		<p>
+			Get E-mail updates about our latest shop and
+			<span>special offers.</span>
+		</p>
+	</div>
+	<div class="form">
+		@await Component.InvokeAsync("Subscribe")
+	</div>
+</section>
+
+<script>
+	// Sayfa yüklendiğinde "All" düğmesini seçili yap
+	document.querySelector('.btnActive').classList.add('changeBtn');
+
+	function hideAllProducts() {
+		document.querySelectorAll('.pro').forEach(function (product) {
+			product.style.display = 'none';
+		});
+	}
+
+	// Kategoriye göre ürünleri filtrelemek için bu fonksiyon kullanılır
+	function filterProducts(categoryId) {
+		hideAllProducts(); // Tüm ürünleri gizle
+
+		// Tüm ürünleri göstermek için "All" seçeneği
+		if (categoryId === null) {
+			document.querySelectorAll('.pro').forEach(function (product) {
+				product.style.display = 'block';
+			});
+			return;
+		}
+
+		// Seçilen kategoriye ait ürünleri göster
+		document.querySelectorAll('.pro[data-categoryShop="' + categoryId + '"]').forEach(function (product) {
+			product.style.display = 'block';
+		});
+
+		// Seçilen kategoriye ait düğmeyi seçili yap
+		document.querySelectorAll('.button-value').forEach(function (button) {
+			button.classList.remove('changeBtn');
+		});
+		document.querySelector('.button-value[data-categoryShop-id="' + categoryId + '"]').classList.add('changeBtn');
+	}
+</script>
 

@@ -628,6 +628,18 @@ footer {
             font-weight: 600;
         }
 
+        #pagination a.page-link {
+            margin: 0 5px; 
+        }
+
+            #pagination a.page-link:hover {
+                background-color: #555; 
+            }
+
+            #pagination a.page-link.active {
+                background-color: #088178; 
+            }
+
 #search {
     width: 100%;
     padding: 20px;
@@ -688,12 +700,26 @@ footer {
             color: #ffffff !important;
         }
 
-/* Single Product */
 
-#prodetails {
-    display: flex;
-    margin-top: 20px;
+.pro-container .pro .des {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+.pro-container .pro .des .scrollable-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+    /* Single Product */
+    #prodetails {
+        display: flex;
+        margin-top: 20px;
+    }
 
     #prodetails .single-pro-image {
         width: 40%;
@@ -768,11 +794,6 @@ footer {
 
 }
 
-.category-selector a {
-   text-decoration: none;  
-   color:white !important;
-}
-
 
     .categoryBlog {
         padding: 10px;
@@ -826,13 +847,17 @@ footer {
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     }
 
-#blog .blog-box {
-    display: flex;
+#blog .blog-box { 
+    display:flex;
     align-items: center;
     width: 100%;
     position: relative;
     padding-bottom: 90px;
 }
+
+    #blog .blog-box.changeBlog {
+        width: 100%;
+    }
 
 #blog .blog-img {
     width: 50%;
@@ -848,6 +873,17 @@ footer {
 #blog .blog-details {
     width: 50%;
 }
+
+    #blog .blog-details h4{
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
+
+    #blog .blog-details p{
+        
+        word-break:break-all;
+    }
 
     #blog .blog-details a {
         text-decoration: none;
@@ -981,6 +1017,7 @@ footer {
 #blog-container main .blog-content p {
     color: #5b5963;
     margin: 1rem 0;
+    word-break:break-all;
 }
 
 #blog-container .blog-tags {
@@ -1061,6 +1098,8 @@ footer {
             cursor: pointer;
             transition: all 0.4s ease;
             box-shadow: 0 0 0.3rem grey;
+            overflow: hidden;
+            
         }
 
     #articles .card-container .img-holder {
@@ -1101,16 +1140,25 @@ footer {
         height: 300px;
         background-color: white;
         padding: 2rem;
+        text-overflow: ellipsis;
     }
 
         #articles .cards-container .card-container .card-text h4 {
             font-size: 1.5rem;
             text-transform: uppercase;
             margin-bottom: 1.5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space:nowrap;
         }
 
         #articles .cards-container .card-container .card-text p {
             font-size: 1.2rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 8; /* Metin satır sayısını ayarlayın */
+            -webkit-box-orient: vertical;
         }
 
     #articles .loadBlog-button {
@@ -1243,6 +1291,10 @@ footer {
             color: #fff;
         }
 
+    #form-details .people {
+        overflow: hidden;
+    }
+
     #form-details .people div {
         padding-bottom: 25px;
         display: flex;
@@ -1263,10 +1315,15 @@ footer {
         }
 
             #form-details .people div p span {
-                display: block;
+                display:block;
                 font-size: 16px;
                 font-weight: 600;
                 color: #000;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; /* Metin satır sayısını ayarlayın */
+                -webkit-box-orient: vertical;
             }
 
 /* Cart Page */

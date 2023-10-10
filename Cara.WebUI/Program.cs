@@ -1,4 +1,4 @@
-using Cara.Business.Helpers;
+﻿using Cara.Business.Helpers;
 using Cara.Business.Interfaces;
 using Cara.Business.Services;
 using Cara.Core.Entities;
@@ -69,10 +69,11 @@ builder.Services.AddTransient<IMailService, MailService>();
 var app = builder.Build();
 
 
-
 //handle http request
 app.UseStaticFiles();
 app.UseSession();
+
+app.UseStatusCodePagesWithRedirects("/Error/{0}");
 
 app.UseAuthentication();
 app.UseAuthorization();

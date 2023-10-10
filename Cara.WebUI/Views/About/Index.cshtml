@@ -4,7 +4,7 @@
 }
 
 <section id="page-header" class="about-header darkmode-ignore">
-    @foreach (var banner in Model.AboutBanners)
+    @foreach (var banner in Model.AboutBanners.Where(b => b.IsActive))
     {
         <img src="~/admin/assets/database/headbanners/@banner.Photo" alt="Header Image" class="header-image" />
         <h2>@banner.Title</h2>
@@ -41,7 +41,7 @@
 <section id="about-app" class="section-p1">
     <h1>
         Download Our
-        <a href="/Mobile_Cara-20230619T231956Z-001.zip" download="Cara">App</a>
+        <a href="~/assets/img/Mobile_Cara-20230619T231956Z-001.zip" download="Cara">App</a>
     </h1>
     <div class="video">
         <video autoplay muted loop src="~/assets/img/about/1.mp4"></video>
@@ -49,30 +49,7 @@
 </section>
 
 <section id="feature" class="section-p1">
-    <div class="fe-box">
-        <img src="~/assets/img/features/f1.png" alt="" />
-        <h6>Free Shipping</h6>
-    </div>
-    <div class="fe-box">
-        <img src="~/assets/img/features/f2.png" alt="" />
-        <h6>Online Order</h6>
-    </div>
-    <div class="fe-box">
-        <img src="~/assets/img/features/f3.png" alt="" />
-        <h6>Save Money</h6>
-    </div>
-    <div class="fe-box">
-        <img src="~/assets/img/features/f4.png" alt="" />
-        <h6>Promotions</h6>
-    </div>
-    <div class="fe-box">
-        <img src="~/assets/img/features/f5.png" alt="" />
-        <h6>Happy Sell</h6>
-    </div>
-    <div class="fe-box">
-        <img src="~/assets/img/features/f6.png" alt="" />
-        <h6>7/24 Support</h6>
-    </div>
+   @await Component.InvokeAsync("Feature")
 </section>
 
 <section id="newsletter" class="section-p1 section-m1">
@@ -84,8 +61,7 @@
         </p>
     </div>
     <div class="form">
-        <input type="text" placeholder="Your email address" />
-        <button class="normal">Sign Up</button>
+        @await Component.InvokeAsync("Subscribe")
     </div>
 </section>
 

@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\ErrorPage\Error404.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.22">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -28,10 +24,6 @@
     <Folder Include="wwwroot\admin\assets\database\blogs\" />
     <Folder Include="wwwroot\admin\assets\database\products\mainimg\" />
     <Folder Include="wwwroot\admin\assets\database\products\productimg\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Views\ErrorPage\Error404.cshtml" />
   </ItemGroup>
 
 </Project>
