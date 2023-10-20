@@ -1,0 +1,24 @@
+﻿@model List<Product>
+
+
+@foreach (var product in Model)
+{
+	<div class="pro" data-category="@product.PCategoryId" style="height:418.61px;">
+		<img src="~/admin/assets/database/products/mainimg/@product.Photo" style="height:72.5%;" alt="" />
+		<div class="des">
+			<span class="scrollable-text">@product.Owner</span>
+			<h5 class="scrollable-text">@product.Name</h5>
+			<div class="star">
+				@for (int i = 0; i < product.Rating; i++)
+				{
+					<i class="fas fa-star"></i>
+
+				}
+			</div>
+			<h4>$@product.Price</h4>
+		</div>
+		<a asp-controller="Shop" asp-action="Detail" asp-route-productId="@product.Id"><i class="fal fa-shopping-cart cart"></i></a>
+	</div>
+
+}
+

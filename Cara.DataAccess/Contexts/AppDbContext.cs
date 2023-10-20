@@ -32,7 +32,11 @@ namespace Cara.DataAccess.Contexts
         public DbSet<AboutBanner> AboutBanners { get; set; } = null!;
         public DbSet<ContactBanner> ContactBanners { get; set; } = null!;
         public DbSet<CartBanner> CartBanners { get; set; } = null!;
-
+        public DbSet<Team> Teams { get; set; } = null!;
+        public DbSet<Comment> Comments { get; set; } = null!;
+        public DbSet<Faq> Faqs { get; set; } = null!;
+        public DbSet<About> Abouts { get; set; } = null!;
+        public DbSet<Address> Addresses { get; set; } = null!;
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

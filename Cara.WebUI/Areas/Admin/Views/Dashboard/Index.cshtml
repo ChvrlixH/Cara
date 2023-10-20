@@ -1,7 +1,63 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
+﻿@{
+	ViewData["Title"] = "Index";
+	var isAuthenticated = User.Identity.IsAuthenticated;
+	var username = isAuthenticated ? User.Identity.Name : null;
 }
 
-<h1>Welcome</h1>
+<style>
 
+	.dashboard-main {
+		display: flex;
+		justify-content: center;	
+		width: 100%;
+	}
+
+		.dashboard-main h1{
+			background-color:beige;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+			padding:25px;
+		}
+
+		.dashboard-user {
+		background-image: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080);
+		background-size: 1200% 100%;
+		animation: gradientChange 10s linear infinite;
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+		font-weight: bold;
+		font-style: italic;
+		display: inline;
+	}
+
+	@@keyframes gradientChange {
+		0% {
+			background-position: 0 0;
+		}
+
+		100% {
+			background-position: 100% 0;
+		}
+	}
+
+</style>
+
+
+<div class="dashboard-main">
+	<h1>Welcome, <span class="dashboard-user">@username</span></h1>
+</div>
+
+@*<script>
+    const colors = ['#ff0000', '#ff8000', '#ffff00', '#80ff00', '#00ff00', '#00ff80', '#00ffff', '#0080ff', '#0000ff', '#8000ff', '#ff00ff', '#ff0080'];
+    let index = 0;
+
+    function changeColorDashboard() {
+        const span = document.querySelector('.dashboard-user');
+        span.style.color = colors[index];
+        index = (index + 1) % colors.length;
+    }
+
+    window.onload = function () {
+        setInterval(changeColorDashboard, 1000);
+    }
+</script>*@

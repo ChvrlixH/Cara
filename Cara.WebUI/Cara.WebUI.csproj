@@ -22,6 +22,14 @@
   <ItemGroup>
     <Folder Include="wwwroot\admin\assets\database\headbanners\" />
     <Folder Include="wwwroot\admin\assets\database\blogs\" />
+    <Folder Include="wwwroot\admin\assets\database\comments\" />
+    <Folder Include="wwwroot\admin\assets\database\authors\" />
+    <Folder Include="wwwroot\admin\assets\database\features\" />
+    <Folder Include="wwwroot\admin\assets\database\homebanners\mainbanners\" />
+    <Folder Include="wwwroot\admin\assets\database\homebanners\smallbanners\" />
+    <Folder Include="wwwroot\admin\assets\database\heroimages\" />
+    <Folder Include="wwwroot\admin\assets\database\abouts\" />
+    <Folder Include="wwwroot\admin\assets\database\teams\" />
     <Folder Include="wwwroot\admin\assets\database\products\mainimg\" />
     <Folder Include="wwwroot\admin\assets\database\products\productimg\" />
   </ItemGroup>

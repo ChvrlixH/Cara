@@ -1,0 +1,29 @@
+﻿@using Cara.WebUI.Areas.Admin.ViewModels.Team;
+@model TeamVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Team</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data" id="productForm">
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label>Image</label>
+                    <input type="file" asp-for="Photo" class="form-control file-upload-browse btn btn-primary" accept="image/*" placeholder="Image">
+                    <span class="text-danger" asp-validation-for="Photo"></span>
+                </div>
+                <div class="form-group">
+                    <label>Fullname</label>
+                    <input asp-for="Fullname" class="form-control" placeholder="Fullname">
+                    <span class="text-danger" asp-validation-for="Fullname"></span>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2" id="submitBtn">Submit</button>
+                <a asp-action="Index" class="btn btn-light">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+

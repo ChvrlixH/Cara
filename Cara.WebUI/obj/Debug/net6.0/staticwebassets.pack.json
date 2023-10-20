@@ -61,6 +61,14 @@
       "PackagePath": "staticwebassets\\admin\\assets\\database\\ab03afb2-acf4-4de6-b8b6-72fd4a6363b6b19.jpg"
     },
     {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\database\\abouts\\3f08209a-2a24-4427-9c13-c74525d15785a3.png",
+      "PackagePath": "staticwebassets\\admin\\assets\\database\\abouts\\3f08209a-2a24-4427-9c13-c74525d15785a3.png"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\database\\abouts\\caa39ca3-0df2-48e8-8188-650c8ce2392ca6.jpg",
+      "PackagePath": "staticwebassets\\admin\\assets\\database\\abouts\\caa39ca3-0df2-48e8-8188-650c8ce2392ca6.jpg"
+    },
+    {
       "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\database\\b809a09d-0663-4882-ba6c-0a08b2bc78d1f1.png",
       "PackagePath": "staticwebassets\\admin\\assets\\database\\b809a09d-0663-4882-ba6c-0a08b2bc78d1f1.png"
     },
@@ -171,6 +179,26 @@
     {
       "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\database\\c77f48f2-744f-4cc0-93a6-368ab5a531caf4.png",
       "PackagePath": "staticwebassets\\admin\\assets\\database\\c77f48f2-744f-4cc0-93a6-368ab5a531caf4.png"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\database\\comments\\29e31995-29c6-4041-9365-4c0469a2f1a9course1.jpg",
+      "PackagePath": "staticwebassets\\admin\\assets\\database\\comments\\29e31995-29c6-4041-9365-4c0469a2f1a9course1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\database\\comments\\55c1e2dd-710c-4258-a8b7-c52d4416fae9Shahin.jpeg",
+      "PackagePath": "staticwebassets\\admin\\assets\\database\\comments\\55c1e2dd-710c-4258-a8b7-c52d4416fae9Shahin.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\database\\comments\\8bbc48c7-29b3-4412-b5bc-30257116c3e9Fikret.jpeg",
+      "PackagePath": "staticwebassets\\admin\\assets\\database\\comments\\8bbc48c7-29b3-4412-b5bc-30257116c3e9Fikret.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\database\\comments\\934927fb-d254-4659-ba98-60a148cf0bbfMayil.jpeg",
+      "PackagePath": "staticwebassets\\admin\\assets\\database\\comments\\934927fb-d254-4659-ba98-60a148cf0bbfMayil.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\database\\comments\\eb3e3c1e-f82e-46f3-ace7-695faa11ae8cTural.jfif",
+      "PackagePath": "staticwebassets\\admin\\assets\\database\\comments\\eb3e3c1e-f82e-46f3-ace7-695faa11ae8cTural.jfif"
     },
     {
       "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\database\\d2a9d3b6-c993-4153-b82b-d0f94df8b5c4X.jpg",
@@ -497,12 +525,28 @@
       "PackagePath": "staticwebassets\\admin\\assets\\database\\products\\productimg\\cd45653a-1eda-42d7-a3e1-a96cbc2aab6edark-demon-witch-fantasy-8k-wallpaper-1024x576.jpg"
     },
     {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\database\\teams\\2b77ad08-39e6-4d4b-b7e1-9d59b7da493333820677.jpg",
+      "PackagePath": "staticwebassets\\admin\\assets\\database\\teams\\2b77ad08-39e6-4d4b-b7e1-9d59b7da493333820677.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\database\\teams\\ff2eb970-e297-4e21-927e-b6404ee09497Picture2.jpg",
+      "PackagePath": "staticwebassets\\admin\\assets\\database\\teams\\ff2eb970-e297-4e21-927e-b6404ee09497Picture2.jpg"
+    },
+    {
       "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\database\\templates\\BlackFriday.html",
       "PackagePath": "staticwebassets\\admin\\assets\\database\\templates\\BlackFriday.html"
     },
     {
       "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\database\\templates\\ConfirmEmail.html",
       "PackagePath": "staticwebassets\\admin\\assets\\database\\templates\\ConfirmEmail.html"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\documentation\\.DS_Store",
+      "PackagePath": "staticwebassets\\admin\\assets\\documentation\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\documentation\\documentation.html",
+      "PackagePath": "staticwebassets\\admin\\assets\\documentation\\documentation.html"
     },
     {
       "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\images\\.DS_Store",
@@ -1017,12 +1061,40 @@
       "PackagePath": "staticwebassets\\assets\\img\\products\\n8.jpg"
     },
     {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\assets\\owner.css",
+      "PackagePath": "staticwebassets\\assets\\owner.css"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\assets\\owner.js",
+      "PackagePath": "staticwebassets\\assets\\owner.js"
+    },
+    {
       "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\assets\\script.js",
       "PackagePath": "staticwebassets\\assets\\script.js"
     },
     {
       "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\assets\\style.css",
       "PackagePath": "staticwebassets\\assets\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\assets\\team\\comments.js",
+      "PackagePath": "staticwebassets\\assets\\team\\comments.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\assets\\team\\team.css",
+      "PackagePath": "staticwebassets\\assets\\team\\team.css"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\assets\\team\\team.css.map",
+      "PackagePath": "staticwebassets\\assets\\team\\team.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\assets\\team\\team.js",
+      "PackagePath": "staticwebassets\\assets\\team\\team.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\assets\\team\\team.scss",
+      "PackagePath": "staticwebassets\\assets\\team\\team.scss"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Cara.WebUI.Microsoft.AspNetCore.StaticWebAssets.props",

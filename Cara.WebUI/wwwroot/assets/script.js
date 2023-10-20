@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const selectedCategory = document.getElementById("selected");
 
     if (selectedCategory) {
-        // Öğe varsa içeriğine erişmeye çalışabilirsiniz
+
         const initialCategory = document.querySelector(".selected");
         selectedCategory.textContent = initialCategory ? initialCategory.textContent : "";
     }
@@ -142,33 +142,103 @@ document.addEventListener("DOMContentLoaded", function () {
 //Product Load More
 
 
+function filterProducts(categoryId) {
+
+    document.querySelectorAll('.pro').forEach(function (product) {
+        product.style.display = 'none';
+    });
+
+    if (categoryId === null) {
+
+        document.querySelectorAll('.pro').forEach(function (product) {
+            product.style.display = 'block';
+        });
+    } else {
+
+        document.querySelectorAll('.pro[data-category="' + categoryId + '"]').forEach(function (product) {
+            product.style.display = 'block';
+        });
+    }
+}
 
 
+// Her kategori için ürün sayısı izlemek için bir obje oluşturun.
+const productCountsByCategory = {};
 
 document.addEventListener("DOMContentLoaded", function () {
     const loadMoreProductBtn = document.getElementById("loadMoreProductBtn");
     const productListLoadMore = document.getElementById("pro-container");
     const productCountElement = document.getElementById("productCountLoadMore");
+    const buttons = document.querySelectorAll(".button-value");
 
     if (productCountElement) {
         const productCountLoadMore = productCountElement.value;
         let skip = 8;
         const increment = 8;
+
+        buttons.forEach(function (button) {
+            const categoryId = button.getAttribute("data-categoryShop-id");
+            productCountsByCategory[categoryId] = productCountLoadMore;
+        });
+
         loadMoreProductBtn.addEventListener("click", function () {
-            console.log(skip);
-            fetch(`/Shop/LoadMoreProduct?skip=${skip}`).then(response => response.text())
-                .then(data => {
-                    productListLoadMore.innerHTML += data;
-                })
+            const selectedCategoryId = getSelectedCategoryId();
+            const productCountForCategory = productCountsByCategory[selectedCategoryId];
+            if (productCountForCategory) {
+                fetch(`/Shop/LoadMoreProduct?skip=${skip}&categoryId=${selectedCategoryId}`)
+                    .then(response => response.text())
+                    .then(data => {
+                        productListLoadMore.innerHTML += data;
+                    });
 
-            skip += increment;
+                skip += increment;
 
-            if (skip >= productCountLoadMore) {
-                loadMoreProductBtn.remove();
+                if (skip >= productCountForCategory) {
+                    loadMoreProductBtn.remove();
+                }
             }
-        })
+        });
+
+        buttons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                setCategoryActive(button);
+                const categoryId = button.getAttribute("data-categoryShop-id");
+                if (categoryId !== "null") {
+                    loadProductsByCategory(categoryId);
+                } else {
+                    loadAllProducts();
+                }
+            });
+        });
+    }
+
+    function getSelectedCategoryId() {
+        const activeCategoryButton = document.querySelector(".button-value.btnActive");
+        return activeCategoryButton.getAttribute("data-categoryShop-id");
+    }
+
+    function setCategoryActive(button) {
+        const activeCategoryButton = document.querySelector(".button-value.btnActive");
+        if (activeCategoryButton) {
+            activeCategoryButton.classList.remove("btnActive");
+        }
+        button.classList.add("btnActive");
+    }
+
+    function loadProductsByCategory(categoryId) {
+        filterProducts(categoryId);
+    }
+
+    function loadAllProducts() {
+        filterProducts(null);
     }
 });
+
+
+
+
+
+
 
 
 
@@ -252,7 +322,7 @@ function saveFormDataToCookie(data) {
 
 // Cookielerden form verilerini yükleme işlevi
 function loadFormDataFromCookie() {
-    // "formData" adlı cookielerden verileri alın
+    // "formData" adlı cookielerden verilerin alınması
     var cookieValue = document.cookie
         .split('; ')
         .find(row => row.startsWith("formData="));
@@ -266,7 +336,7 @@ function loadFormDataFromCookie() {
     return null;
 }
 
-// Formu otomatik olaraq yükleme işlevi
+// Formu avtomatik olaraq yükleme işlevi
 function loadForm() {
     var formData = loadFormDataFromCookie();
 
@@ -278,7 +348,7 @@ function loadForm() {
     }
 }
 
-// Sayfa yüklendiğinde formu otomatik olaraq yükle
+// Sayfa yüklendiğinde formu avtomatik olaraq yükle
 window.addEventListener("load", function () {
     loadForm();
 });
@@ -306,7 +376,7 @@ if (myForm) {
 
         if (!name || !email || !subject || !message) {
             alert("Tüm alanları doldurun!");
-            return; // Veriler eksikse prosesi durdur
+            return; // Veriler eksikse prosesi dayandır
         }
         /*window.location.href = "";*/
 
@@ -539,7 +609,7 @@ function addToCartClicked(event) {
     );
 }
 
-// Sebete ürün elave etme işlev
+// Sebete ürün elave etme işlevi
 function addToCart(productName, price, quantity, image, title) {
     const existingItem = cartItems.find((item) => item.name === productName);
 

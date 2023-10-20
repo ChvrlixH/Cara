@@ -13,7 +13,7 @@
         <div class="profile_blog">
             <div class="profile">
                 <div class="blog-img">
-                    <img src="~/admin/assets/database/@Model.Authors.FirstOrDefault(a => a.Id == Model.Blogs.FirstOrDefault().AuthorId)?.Photo" alt="">
+                    <img src="~/admin/assets/database/authors/@Model.Authors.FirstOrDefault(a => a.Id == Model.Blogs.FirstOrDefault().AuthorId)?.Photo" alt="">
                 </div>
                 <div class="blog-text">
                     <h3>@Model.Authors.FirstOrDefault(a => a.Id == Model.Blogs.FirstOrDefault().AuthorId)?.Fullname</h3>
@@ -69,8 +69,7 @@
         </p>
     </div>
     <div class="form">
-        <input type="text" placeholder="Your email address" />
-        <button class="normal">Sign Up</button>
+        @await Component.InvokeAsync("Subscribe")
     </div>
 </section>
 

@@ -74,7 +74,7 @@
 
 
 <script>
-    // Sayfa yüklendiğinde "All" düğmesini seçili yap
+    
     document.querySelector('.selected').classList.add('changeBlog');
 
     function hideAllBlogs() {
@@ -83,11 +83,9 @@
         });
     }
 
-    // Kategoriye göre ürünleri filtrelemek için bu fonksiyon kullanılır
     function filterBlogs(categoryId) {
-        hideAllBlogs(); // Tüm ürünleri gizle
+        hideAllBlogs(); 
 
-        // Tüm ürünleri göstermek için "All" seçeneği
         if (categoryId === null) {
             document.querySelectorAll('.blog-box').forEach(function (blog) {
                 blog.style.display = 'flex';
@@ -95,12 +93,10 @@
             return;
         }
 
-        // Seçilen kategoriye ait ürünleri göster
         document.querySelectorAll('.blog-box[data-category="' + categoryId + '"]').forEach(function (blog) {
             blog.style.display = 'flex';
         });
 
-        // Seçilen kategoriye ait düğmeyi seçili yap
         document.querySelectorAll('.categoryBlog').forEach(function (blogDiv) {
             blogDiv.classList.remove('changeBlog');
         });

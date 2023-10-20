@@ -63,6 +63,11 @@ builder.Services.AddScoped<IBlogBannerRepository, BlogBannerRepository>();
 builder.Services.AddScoped<IAboutBannerRepository, AboutBannerRepository>();
 builder.Services.AddScoped<IContactBannerRepository, ContactBannerRepository>();
 builder.Services.AddScoped<ICartBannerRepository, CartBannerRepository>();
+builder.Services.AddScoped<ITeamRepository, TeamRepository>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+builder.Services.AddScoped<IFaqRepository, FaqRepository>();
+builder.Services.AddScoped<IAboutRepository, AboutRepository>();
+builder.Services.AddScoped<IAddressRepository, AddressRepository>();
 
 builder.Services.AddTransient<IMailService, MailService>();
 

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Address>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Address</h4>
+			<a class="btn btn-primary" asp-action="Create">Create Address</a>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Maps</th>
+							<th>Emails</th>
+							<th>Numbers</th>
+							<th>Active</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (Address address in Model)
+						{
+							<tr>
+								<td style="max-width:300px">@address.Map</td>
+								<td style="max-width:200px">@address.Email</td>
+								<td style="max-width:200px">@address.Phone</td>
+								<td style="max-width:100px">@address.IsActive</td>
+								<td>
+									<a class="btn btn-success" asp-action="Detail" asp-route-id="@address.Id">
+										<i class="mdi mdi-information-outline" style="color:white"></i>
+									</a>
+									<a class="btn btn-warning" asp-action="Update" asp-route-id="@address.Id">
+										<i class="mdi mdi-grease-pencil" style="color:white"></i>
+									</a>
+									<a class="btn btn-danger" asp-action="Delete" asp-route-id="@address.Id">
+										<i class="mdi mdi-delete" style="color:white"></i>
+									</a>
+
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+

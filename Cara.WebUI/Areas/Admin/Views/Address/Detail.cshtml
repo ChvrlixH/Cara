@@ -1,0 +1,17 @@
+﻿@model Address
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="col-lg-12" style="padding-left:55px">
+	<h4> <span style="color:red">Head Title:</span> @Model.HeadTitle</h4>
+	<h4> <span style="color:red">Active:</span> @Model.IsActive</h4>
+	<h4> <span style="color:red">Title:</span> @Model.Title</h4>
+	<h4> <span style="color:red">Subtitle:</span> @Model.SubTitle</h4>
+	<h4> <span style="color:red">Map:</span> @Model.Map</h4>
+	<h4> <span style="color:red">Email:</span> @Model.Email</h4>
+	<h4> <span style="color:red">Phone:</span> @Model.Phone</h4>
+	<h4> <span style="color:red">Time:</span> @Model.Time</h4>
+	<a class="btn btn-info" asp-action="Index" style="margin-top:30px">Go Back</a>
+</div>
+

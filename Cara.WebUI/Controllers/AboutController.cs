@@ -18,7 +18,8 @@ namespace Cara.WebUI.Controllers
         {
             AboutViewModel aboutViewModel = new()
             {
-                AboutBanners = _context.AboutBanners.AsNoTracking()
+                AboutBanners = _context.AboutBanners.AsNoTracking(),
+                Abouts = _context.Abouts.AsNoTracking()
             };
             return View(aboutViewModel);
         }

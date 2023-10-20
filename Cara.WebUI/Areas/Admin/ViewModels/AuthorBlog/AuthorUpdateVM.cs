@@ -11,8 +11,8 @@ namespace Cara.WebUI.Areas.Admin.ViewModels.AuthorBlog
 		[Required, MaxLength(75)]
 		public string? Profession { get; set; }
 		[Required, DataType(DataType.PhoneNumber)]
-		public int Phone { get; set; }
-		[Required, MaxLength(256), DataType(DataType.PhoneNumber)]
+		public string? Phone { get; set; }
+		[Required, MaxLength(256), DataType(DataType.EmailAddress)]
 		public string? Email { get; set; }
 		public string? ImagePath { get; set; }
 	}

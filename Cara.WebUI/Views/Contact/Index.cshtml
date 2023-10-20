@@ -14,29 +14,32 @@
 
 <section id="contact-details" class="section-p1">
     <div class="details">
-        <span>GET IN TOUCH</span>
-        <h2>Visit one of our agency locations or contact us today</h2>
-        <h3>Head Office</h3>
+        @foreach (var address in Model.Addresses.Where(a => a.IsActive))
+        {
+        <span>@address.HeadTitle</span>
+        <h2>@address.Title</h2>
+        <h3>@address.SubTitle</h3>
         <div>
             <li>
                 <i class="fal fa-map"></i>
                 <p>
-                    Nizami küçəsi 203B, AF Business House, 2-ci mərtəbə, Baku 1000
+                    @address.Map
                 </p>
             </li>
             <li>
                 <i class="far fa-envelope"></i>
-                <p>huseynsha@code.edu.az</p>
+                <p>@address.Email</p>
             </li>
             <li>
                 <i class="fas fa-phone-alt"></i>
-                <p>+994 50 977 77 36</p>
+                <p>@address.Phone</p>
             </li>
             <li>
                 <i class="far fa-clock"></i>
-                <p>Everyday: 10:00am to 10:00pm</p>
+                <p>@address.Time</p>
             </li>
         </div>
+        }
     </div>
     <div class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.428674853689!2d49.85137057578401!3d40.377190871445976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d079efb5163%3A0xc20aa51a5f0b5e01!2sCode%20Academy!5e0!3m2!1sen!2saz!4v1686776560872!5m2!1sen!2saz"
@@ -67,10 +70,10 @@
         @foreach (var item in Model.Authors)
         {
         <div>
-                <img src="~/admin/assets/database/@item.Photo" style="border-radius:50%;" alt="" />
+                <img src="~/admin/assets/database/authors/@item.Photo" style="border-radius:50%;" alt="" />
             <p>
                 <span>@item.Fullname</span> @item.Profession <br />
-                Phone: + @item.Phone <br />Email: @item.Email
+                Phone: @item.Phone <br />Email: @item.Email
             </p>
         </div>    
         }

@@ -7,13 +7,12 @@ namespace Cara.WebUI.Controllers
         [Route("/Error/{statusCode}")]
         public IActionResult HttpStatusCodeHandler(int statusCode)
         {
-            // 404 hatası için özel sayfayı döndürün
             if (statusCode == 404)
             {
                 return View("404");
             }
 
-            // Diğer hatalar için genel bir hata sayfasını döndürün
+
             return View("Error");
         }
     }

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Faq>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Faq</h4>
+			<a class="btn btn-primary" asp-action="Create">Create Faq</a>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Questions</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (Faq faq in Model)
+						{
+							<tr>
+								<td style="max-width:100px">@faq.Id</td>
+								<td style="max-width:500px">@faq.Question</td>
+								<td>
+									<a class="btn btn-success" asp-action="Detail" asp-route-id="@faq.Id">
+										<i class="mdi mdi-information-outline" style="color:white"></i>
+									</a>
+									<a class="btn btn-warning" asp-action="Update" asp-route-id="@faq.Id">
+										<i class="mdi mdi-grease-pencil" style="color:white"></i>
+									</a>
+									<a class="btn btn-danger" asp-action="Delete" asp-route-id="@faq.Id">
+										<i class="mdi mdi-delete" style="color:white"></i>
+									</a>
+
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+

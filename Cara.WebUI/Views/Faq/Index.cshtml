@@ -1,4 +1,4 @@
-﻿
+﻿@model FaqViewModel
 @{
     ViewData["Title"] = "Index";
 }
@@ -6,55 +6,20 @@
 <section id="total-faq">
     <div id="faq">
         <h2>Frequently Asked Questions</h2>
+        @foreach (var item in Model.Faqs)
+        {
         <div class="faq-item">
             <div class="faq_question">
-                <h3>How do I create an account?</h3>
+                <h3>@item.Question</h3>
             </div>
             <div class="faq_answer">
                 <p>
-                    To create an account, click on the "Sign Up" button at the top
-                    right corner of the page. Provide your details and follow the
-                    instructions to set up your account.
+                    @item.Answer
                 </p>
             </div>
         </div>
-        <div class="faq-item">
-            <div class="faq_question">
-                <h3>Can I track my order?</h3>
-            </div>
-            <div class="faq_answer">
-                <p>
-                    Yes, you can track your order by visiting the "Order Tracking"
-                    section in your account. Enter your order number and email to get
-                    real-time updates on your shipment.
-                </p>
-            </div>
-        </div>
-        <div class="faq-item">
-            <div class="faq_question">
-                <h3>What is your return policy?</h3>
-            </div>
-            <div class="faq_answer">
-                <p>
-                    Our return policy allows you to return products within 30 days of
-                    purchase for a full refund. Make sure the items are in their
-                    original condition and packaging.
-                </p>
-            </div>
-        </div>
-        <div class="faq-item">
-            <div class="faq_question">
-                <h3>How can I contact customer support?</h3>
-            </div>
-            <div class="faq_answer">
-                <p>
-                    You can contact our friendly customer support team by emailing
-                    support@example.com or by calling our toll-free number at
-                    1-800-123-4567.
-                </p>
-            </div>
-        </div>
-    </div>
+        }
+    </div>            
 
     <div id="faq-img">
         <img src="~/assets/img/help/Untitled-3.png" alt="" />
@@ -70,8 +35,7 @@
         </p>
     </div>
     <div class="form">
-        <input type="text" placeholder="Your email address" />
-        <button class="normal">Sign Up</button>
+        @await Component.InvokeAsync("Subscribe")
     </div>
 </section>
 

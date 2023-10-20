@@ -62,7 +62,7 @@ namespace Cara.WebUI.Areas.Admin.Controllers
 
 			try
 			{
-				filename = await authorVM.Photo.CopyFileAsync(_env.WebRootPath, "admin", "assets", "database");
+				filename = await authorVM.Photo.CopyFileAsync(_env.WebRootPath, "admin", "assets", "database", "authors");
 			}
 			catch (Exception)
 			{
@@ -126,7 +126,7 @@ namespace Cara.WebUI.Areas.Admin.Controllers
 			author.Email = authorUpdateVM.Email;
 			if (authorUpdateVM.Photo != null)
 			{
-				Helper.DeleteFile(_env.WebRootPath, "admin", "assets", "database", author.Photo);
+				Helper.DeleteFile(_env.WebRootPath, "admin", "assets", "database", "authors", author.Photo);
 
 				if (!authorUpdateVM.Photo.CheckFileSize(500))
 				{
@@ -143,7 +143,7 @@ namespace Cara.WebUI.Areas.Admin.Controllers
 
 				try
 				{
-					filename = await authorUpdateVM.Photo.CopyFileAsync(_env.WebRootPath, "admin", "assets", "database");
+					filename = await authorUpdateVM.Photo.CopyFileAsync(_env.WebRootPath, "admin", "assets", "database", "authors");
 				}
 				catch (Exception)
 				{
@@ -176,7 +176,7 @@ namespace Cara.WebUI.Areas.Admin.Controllers
 		{
 			var author = await _repository.GetAsync(id);
 			if (author == null) return NotFound();
-			Helper.DeleteFile(_env.WebRootPath, "admin", "assets", "database", author.Photo);
+			Helper.DeleteFile(_env.WebRootPath, "admin", "assets", "database", "authors", author.Photo);
 
 			_repository.Delete(author);
 			await _repository.SaveAsync();

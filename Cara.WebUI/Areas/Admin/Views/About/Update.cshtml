@@ -1,0 +1,50 @@
+﻿@using Cara.WebUI.Areas.Admin.ViewModels.About;
+@model AboutUpdateVM 
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update About</h4>
+            <h4 class="card-title" style="margin-top:40px">Current About Photo</h4>
+            <img src="~/admin/assets/database/abouts/@Model.ImagePath" width="100" alt="Alternate Photo" />
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Image</label>
+                    <input type="file" asp-for="Photo" class="form-control file-upload-browse btn btn-primary" accept="image/*" placeholder="Image">
+                    <span class="text-danger" asp-validation-for="Photo"></span>
+                </div>
+                <div class="form-group">
+                    <label>Title</label>
+                    <input asp-for="Title" class="form-control" placeholder="Title">
+                    <span class="text-danger" asp-validation-for="Title"></span>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <input asp-for="Description" class="form-control" placeholder="Description">
+                    <span class="text-danger" asp-validation-for="Description"></span>
+                </div>
+                <div class="form-group">
+                    <label>DescDotted</label>
+                    <input asp-for="DescDotted" class="form-control" placeholder="DescDotted">
+                    <span class="text-danger" asp-validation-for="DescDotted"></span>
+                </div>
+                <div class="form-group">
+                    <label>DescMarquee</label>
+                    <input asp-for="DescMarquee" class="form-control" placeholder="DescMarquee">
+                    <span class="text-danger" asp-validation-for="DescMarquee"></span>
+                </div>
+                <div class="form-group">
+                    <label>Active</label>
+                    <input asp-for="IsActive" class="form-control" placeholder="Choose">
+                    <span class="text-danger" asp-validation-for="IsActive"></span>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <a asp-action="Index" class="btn btn-light">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+

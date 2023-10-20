@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azmood E-Commerce Website Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            animation: slideInDown 1s;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        header h1 {
+            font-size: 32px;
+        }
+
+        section {
+            background-color: #f7f7f7;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            animation: slideInUp 1s;
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        span {
+            color: chartreuse;
+            white-space: nowrap;
+            padding-left: 5px;
+            border: 3px solid;
+            border-image: repeating-linear-gradient( 135deg, #f8ca00 0 10px, #e97f02 0 20px, #bd1550 0 30px ) 8;
+            -webkit-mask: conic-gradient( from 180deg at top 3px right 3px, #0000 90deg, #000 0 ) var(--_i, 200%) 0 /200% var(--_i, 3px) border-box no-repeat, conic-gradient(at bottom 3px left 3px, #0000 90deg, #000 0) 0 var(--_i, 200%) / var(--_i, 3px) 200% border-box no-repeat, linear-gradient(#000 0 0) padding-box no-repeat;
+            transition: 0.3s, -webkit-mask-position 0.3s 0.3s;
+        }
+
+            span:hover {
+                --_i: 100%;
+                color: #cc333f;
+                transition: 0.3s, -webkit-mask-size 0.3s 0.3s;
+            }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cara E-Commerce Website Documentation</h1>
+    </header>
+
+    <section id="introduction">
+        <h2>Introduction</h2>
+        <p>
+            The Cara E-Commerce Website is an online shopping platform based in Baku, Azerbaijan.
+            This documentation provides comprehensive information about the core functionalities of the website.
+        </p>
+    </section>
+
+    <section id="home-page">
+        <h2>Home Page</h2>
+        <p>
+            The home page serves as a welcome point for users visiting the website. This page typically includes the following components:
+        </p>
+        <ul>
+            <li>Homepage Title and Greeting Text</li>
+            <li>Product and Campaign Images</li>
+            <li>Product Categories and Links</li>
+        </ul>
+    </section>
+
+    <section id="products-and-categories">
+        <h2>Products and Categories</h2>
+        <p>
+            Cara offers various product categories. Users can browse and purchase different products from this section. In this section, you'll find:
+        </p>
+        <ul>
+            <li>Product Categories</li>
+            <li>List of Products</li>
+            <li>Individual Product Detail Pages</li>
+        </ul>
+    </section>
+
+    <section id="shopping-cart-and-checkout">
+        <h2>Shopping Cart and Checkout</h2>
+        <p>
+            Users can add selected products to their shopping cart and proceed to the checkout process. This section includes the following:
+        </p>
+        <ul>
+            <li>Cart Contents</li>
+            <li>Checkout Form</li>
+            <li>Shipping and Delivery Options</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>
+            Providing a contact page allows customers to reach out to you. This page generally contains:
+        </p>
+        <ul>
+            <li>Contact Form</li>
+            <li>Contact Information (Address, Phone, Email)</li>
+        </ul>
+    </section>
+
+    <section id="account-management">
+        <h2>Account Management</h2>
+        <p>
+            Users should be able to manage their accounts. In this section, you'll find:
+        </p>
+        <ul>
+            <li>Login and Registration</li>
+            <li>Updating Account Information</li>
+            <li>Order History</li>
+        </ul>
+    </section>
+
+    <section id="admin-panel">
+        <h2>Admin Panel</h2>
+        <p>
+            The Cara E-Commerce website features a powerful admin panel that allows administrators to manage various aspects of the platform.
+            This section provides documentation on how to use the admin panel effectively.
+        </p>
+    </section>
+
+    <section id="blog">
+        <h2>Blog</h2>
+        <p>
+            The Cara blog is a place for sharing news, updates, and informative articles related to the e-commerce industry.
+            This section explains how to create and manage blog posts on the website.
+        </p>
+    </section>
+
+    <section id="frequently-asked-questions">
+        <h2>Frequently Asked Questions (FAQs)</h2>
+        <p>
+            Frequently asked questions are used to answer the most common inquiries from customers. This section typically includes:
+        </p>
+        <ul>
+            <li>List of FAQs and Their Answers</li>
+            <li>Help and Support Information</li>
+        </ul>
+    </section>
+
+    <section id="seo-optimization">
+        <h2>SEO Optimization</h2>
+        <p>
+            Making your website SEO-friendly can help attract more customers. In this section, you'll find some basic tips for making your site more SEO-friendly.
+        </p>
+    </section>
+
+    <section id="updates">
+        <h2>Updates</h2>
+        <p>
+            As your website undergoes changes, make sure to regularly update your documents. Keep your documents current as products, services, or policies evolve.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023<span>Azmood Company</span>. All rights reserved.</p>
+    </footer>
+</body>
+</html>

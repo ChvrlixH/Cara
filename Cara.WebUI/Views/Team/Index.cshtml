@@ -1,0 +1,59 @@
+﻿@model TeamViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<link rel="stylesheet" type="text/css" href="~/assets/team/team.css" />
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+
+<div class="alumni section-p1">
+    <ul class="grid">
+        <h2>Our Alumni</h2>
+        @foreach (var item in Model.Teams)
+        {
+        <li>
+            <a href="#">
+                <img src="~/admin/assets/database/teams/@item.Photo" alt="" />
+                <div class="info">
+                    <p>@item.Fullname</p>
+                </div>
+            </a>
+        </li>        
+        }
+    </ul>
+</div>
+
+<div class="gtco-testimonials section-p1">
+    <h2>Cara Digital Store - Famous Comments</h2>
+    <div class="owl-carousel owl-carousel1 owl-theme">
+        @foreach (var item in Model.Comments)
+        {
+        <div>
+            <div class="card text-center">
+                <img class="card-img-top"
+                     src="~/admin/assets/database/comments/@item.Photo"
+                     alt="" />
+                <div class="card-body">
+                    <h5>
+                        @item.Fullname <br />
+                        <span> @item.Profession </span>
+                    </h5>
+                    <p class="card-text">
+                        “ @item.Description ”
+                    </p>
+                </div>
+            </div>
+        </div>       
+        }
+
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="~/assets/team/team.js"></script>
+<script src="~/assets/team/comments.js"></script>
+

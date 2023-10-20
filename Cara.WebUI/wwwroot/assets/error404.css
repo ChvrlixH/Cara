@@ -29,6 +29,7 @@
             }
 
         .flex-container .text-center h1 {
+            padding-bottom:20px;
             font-size: 8em;
             transition: font-size 200ms ease-in-out;
             border-bottom: 1px dashed white;

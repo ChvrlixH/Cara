@@ -1,0 +1,50 @@
+﻿@model IEnumerable<About>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">About</h4>
+			<a class="btn btn-primary" asp-action="Create">Create About</a>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Images</th>
+							<th>Titles</th>
+							<th>Status</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (About about in Model)
+						{
+							<tr>
+								<td class="py-1">
+									<img style="width:60px; height:60px;" src="~/admin/assets/database/abouts/@about.Photo" />
+								</td>
+								<td style="max-width:500px">@about.Title</td>
+								<td style="max-width:100px">@about.IsActive</td>
+								<td>
+									<a class="btn btn-success" asp-action="Detail" asp-route-id="@about.Id">
+										<i class="mdi mdi-information-outline" style="color:white"></i>
+									</a>
+									<a class="btn btn-warning" asp-action="Update" asp-route-id="@about.Id">
+										<i class="mdi mdi-grease-pencil" style="color:white"></i>
+									</a>
+									<a class="btn btn-danger" asp-action="Delete" asp-route-id="@about.Id">
+										<i class="mdi mdi-delete" style="color:white"></i>
+									</a>
+
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+

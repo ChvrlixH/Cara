@@ -1,4 +1,8 @@
-﻿﻿
+﻿@{
+	var isAuthenticated = User.Identity.IsAuthenticated;
+	var username = isAuthenticated ? User.Identity.Name : null;
+	var truncatedUsername = username.Length > 7 ? username.Substring(0, 7) + new string('*', 4) : username;
+}﻿
 <!DOCTYPE html>
 <html lang="en">
 
@@ -143,7 +147,10 @@
 					<li class="nav-item nav-profile dropdown">
 						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
 							<img src="~/admin/assets/images/faces/face5.jpg" alt="profile" />
-							<span class="nav-profile-name">Huseyn Ahadzada</span>
+							@if (isAuthenticated)
+							{
+								<span class="nav-profile-name">@truncatedUsername</span>
+							}
 						</a>
 						<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
 							<a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">
@@ -226,18 +233,47 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+						<a class="nav-link" asp-controller="Team" asp-action="Index">
+							<i class="mdi mdi-emoticon menu-icon"></i>
+							<span class="menu-title">Teams</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" asp-controller="Comment" asp-action="Index">
+							<i class="mdi mdi-emoticon menu-icon"></i>
+							<span class="menu-title">Comments</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" asp-controller="Faq" asp-action="Index">
+							<i class="mdi mdi-emoticon menu-icon"></i>
+							<span class="menu-title">Faqs</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" asp-area="Admin" asp-controller="About" asp-action="Index">
+							<i class="mdi mdi-emoticon menu-icon"></i>
+							<span class="menu-title">Abouts</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" asp-area="Admin" asp-controller="Address" asp-action="Index">
+							<i class="mdi mdi-emoticon menu-icon"></i>
+							<span class="menu-title">Addresses</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="collapse" href="#product_admin" aria-expanded="false" aria-controls="auth">
 							<i class="mdi mdi-account menu-icon"></i>
 							<span class="menu-title">Product Pages</span>
 							<i class="menu-arrow"></i>
 						</a>
-						<div class="collapse" id="auth">
+						<div class="collapse" id="product_admin">
 							<ul class="nav flex-column sub-menu">
 								<li class="nav-item"> <a class="nav-link" asp-controller="Product" asp-action="Index"> Product Page </a></li>
 								<li class="nav-item"> <a class="nav-link" asp-controller="ProductImage" asp-action="Index"> Product Images </a></li>
 								<li class="nav-item"> <a class="nav-link" asp-controller="PCategory" asp-action="Index"> Product Categories </a></li>
 								<li class="nav-item"> <a class="nav-link" asp-controller="Size" asp-action="Index"> Product Sizes </a></li>
-								<li class="nav-item"> <a class="nav-link" href="../../pages/samples/lock-screen.html"> Lockscreen </a></li>
 							</ul>
 						</div>
 					</li>
@@ -253,12 +289,11 @@
 								<li class="nav-item"> <a class="nav-link" asp-controller="Author" asp-action="Index"> Author </a></li>
 								<li class="nav-item"> <a class="nav-link" asp-controller="BCategory" asp-action="Index"> Blog Categories </a></li>
 								<li class="nav-item"> <a class="nav-link" asp-controller="Tag" asp-action="Index"> Blog Tags </a></li>
-								<li class="nav-item"> <a class="nav-link" href="../../pages/samples/lock-screen.html"> Lockscreen </a></li>
 							</ul>
 						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="../../documentation/documentation.html">
+						<a class="nav-link" href="~/admin/assets/documentation/documentation.html">
 							<i class="mdi mdi-file-document-box-outline menu-icon"></i>
 							<span class="menu-title">Documentation</span>
 						</a>

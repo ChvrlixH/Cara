@@ -7,7 +7,7 @@
 <section id="hero" class="darkmode-ignore">
 	@foreach (HeroItem item in Model.HeroItems.Where(h => h.isActive))
 	{
-		<img src="~/admin/assets/database/@item.Photo" alt="Super Value Deals" class="hero-image" />
+		<img src="~/admin/assets/database/heroimages/@item.Photo" alt="Super Value Deals" class="hero-image" />
 		<h4 class="banner-title">@item.Name</h4>
 		<h2 class="banner-subtitle">@item.Title</h2>
 		<h1 class="banner-title">@item.SubTitle</h1>
@@ -20,7 +20,7 @@
 	@foreach (Feature item in Model.Features)
 	{
 	<div class="fe-box">
-			<img src="~/admin/assets/database/@item.Photo" alt="" />
+			<img src="~/admin/assets/database/features/@item.Photo" alt="" />
 		<h6>@item.Title</h6>
 	</div>	
 	}
@@ -54,7 +54,7 @@
 	@foreach (MainBannerItem item in Model.MainBannerItems)
 	{
 		<div class="banner-box">
-			<img src="~/admin/assets/database/@item.Photo" alt="Crazy Deals" class="banner-image" />
+			<img src="~/admin/assets/database/homebanners/mainbanners/@item.Photo" alt="Crazy Deals" class="banner-image" />
 			<h4 class="banner-title">@item.Name</h4>
 			<h2 class="banner-subtitle">@item.Title</h2>
 			<span class="banner-description">@item.Description</span>
@@ -67,7 +67,7 @@
 	@foreach (SmallBannerItem item in Model.SmallBannerItems)
 	{
 	<div class="banner-box">
-			<img src="~/admin/assets/database/@item.Photo"
+			<img src="~/admin/assets/database/homebanners/smallbanners/@item.Photo"
 			 class="banner-image" />
 			<h2 class="banner-title">@item.Name</h2>
 			<h3 class="banner-subtitle">@item.Title</h3>

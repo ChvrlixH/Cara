@@ -63,7 +63,7 @@ namespace Cara.WebUI.Areas.Admin.Controllers
 
 			try
 			{
-				filename = await smallBannerVM.Photo.CopyFileAsync(_env.WebRootPath, "admin", "assets", "database");
+				filename = await smallBannerVM.Photo.CopyFileAsync(_env.WebRootPath, "admin", "assets", "database", "homebanners", "smallbanners");
 			}
 			catch (Exception)
 			{
@@ -115,7 +115,7 @@ namespace Cara.WebUI.Areas.Admin.Controllers
 			smallBanner.Title = bannerUpdateVM.Title;
 			if (bannerUpdateVM.Photo != null)
 			{
-				Helper.DeleteFile(_env.WebRootPath, "admin", "assets", "database", smallBanner.Photo);
+				Helper.DeleteFile(_env.WebRootPath, "admin", "assets", "database", "homebanners", "smallbanners", smallBanner.Photo);
 
 				if (!bannerUpdateVM.Photo.CheckFileSize(1000))
 				{
@@ -133,7 +133,7 @@ namespace Cara.WebUI.Areas.Admin.Controllers
 
 				try
 				{
-					filename = await bannerUpdateVM.Photo.CopyFileAsync(_env.WebRootPath, "admin", "assets", "database");
+					filename = await bannerUpdateVM.Photo.CopyFileAsync(_env.WebRootPath, "admin", "assets", "database", "homebanners", "smallbanners");
 				}
 				catch (Exception)
 				{
@@ -164,7 +164,7 @@ namespace Cara.WebUI.Areas.Admin.Controllers
 		{
 			var smallBanner = await _repository.GetAsync(id);
 			if (smallBanner == null) return NotFound();
-			Helper.DeleteFile(_env.WebRootPath, "admin", "assets", "database", smallBanner.Photo);
+			Helper.DeleteFile(_env.WebRootPath, "admin", "assets", "database", "homebanners", "smallbanners", smallBanner.Photo);
 
 			_repository.Delete(smallBanner);
 			await _repository.SaveAsync();

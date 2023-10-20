@@ -38,7 +38,7 @@ namespace Cara.WebUI.Controllers
 		{
 			if (productId == null)
 			{
-				return NotFound(); // productId belirtilmemişse 404 hatası döndürün
+				return NotFound(); 
 			}
 
 			var product = _context.Products.Include(p=>p.PCategory)
@@ -49,7 +49,7 @@ namespace Cara.WebUI.Controllers
 
 			if (product == null)
 			{
-				return NotFound(); // Ürün bulunamadıysa 404 hatası döndürün
+				return NotFound(); 
 			}
 
 			var viewModel = new ShopViewModel
@@ -68,7 +68,6 @@ namespace Cara.WebUI.Controllers
 			var categories = _context.PCategories.ToList();
 			var products = _context.Products.Where(p => p.PCategoryId == categoryId).ToList();
 
-			// Bu ViewModel, sadece seçilen kategoriye ait ürünleri içerir
 			var viewModel = new ShopViewModel
 			{
 				PCategories = categories,
@@ -78,11 +77,19 @@ namespace Cara.WebUI.Controllers
 			return View("Index", viewModel);
 		}
 
-		public IActionResult LoadMoreProduct(int skip)
+		public IActionResult LoadMoreProduct(int skip, int? categoryId)
 		{
-			var products = _context.Products.Include(p => p.PCategory).Skip(skip).Take(8).ToList();
+			var query = _context.Products.AsQueryable();
 
-			return PartialView("_ProductPartial", products);
+			if (categoryId.HasValue)
+			{
+				// Eğer bir kategori seçildiyse, sadece o kategoriye ait ürünleri al
+				query = query.Where(p => p.PCategoryId == categoryId);
+			}
+
+			var products = query.Skip(skip).Take(8).ToList();
+
+			return PartialView("_PLoadMorePartial", products);
 		}
 	}
 }

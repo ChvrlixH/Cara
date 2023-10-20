@@ -1,0 +1,26 @@
+﻿@model Address
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="content-wrapper  col-11">
+	<div class="row">
+		<div class="col-lg-12" style="padding-left:55px">
+			<h4> <span style="color:red">Head Title:</span> @Model.HeadTitle</h4>
+			<h4> <span style="color:red">Active:</span> @Model.IsActive</h4>
+			<h4> <span style="color:red">Title:</span> @Model.Title</h4>
+			<h4> <span style="color:red">Subtitle:</span> @Model.SubTitle</h4>
+			<h4> <span style="color:red">Map:</span> @Model.Map</h4>
+			<h4> <span style="color:red">Email:</span> @Model.Email</h4>
+			<h4> <span style="color:red">Phone:</span> @Model.Phone</h4>
+			<h4> <span style="color:red">Time:</span> @Model.Time</h4>
+			<div style="display:flex; gap:20px;">
+				<a class="btn btn-info" asp-action="Index" style="margin-top:30px">Go Back</a>
+				<form method="post">
+					<button type="submit" class="btn btn-danger" style="margin-top:30px">Delete</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
