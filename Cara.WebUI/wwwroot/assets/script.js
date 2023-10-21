@@ -162,7 +162,6 @@ function filterProducts(categoryId) {
 }
 
 
-// Her kategori için ürün sayısı izlemek için bir obje oluşturun.
 const productCountsByCategory = {};
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -203,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
             button.addEventListener("click", function () {
                 setCategoryActive(button);
                 const categoryId = button.getAttribute("data-categoryShop-id");
-                if (categoryId !== "null") {
+                if (categoryId != "null") {
                     loadProductsByCategory(categoryId);
                 } else {
                     loadAllProducts();

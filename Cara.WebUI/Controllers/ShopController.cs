@@ -83,7 +83,6 @@ namespace Cara.WebUI.Controllers
 
 			if (categoryId.HasValue)
 			{
-				// Eğer bir kategori seçildiyse, sadece o kategoriye ait ürünleri al
 				query = query.Where(p => p.PCategoryId == categoryId);
 			}
 

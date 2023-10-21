@@ -14,7 +14,6 @@
 						<tr>
 							<th>Image</th>
 							<th>Title</th>
-							<th>Description</th>
 							<th>Category Name</th>
 							<th>Actions</th>
 						</tr>
@@ -26,8 +25,7 @@
 								<td class="py-1">
 									<img style="width:60px; height:60px;" src="~/admin/assets/database/blogs/@blog.Photo" />
 								</td>
-								<td style="max-width:300px">@blog.Title</td>
-								<td style="max-width:400px">@Html.Raw(blog.Description)</td>
+								<td style="max-width:600px">@blog.Title</td>
 								<td style="max-width:100px">@blog.BCategory.Name</td>
 								<td>
 									<a class="btn btn-success" asp-action="Detail" asp-route-id="@blog.Id">

@@ -68,9 +68,9 @@ public class ProductController : Controller
 			return View(productVM);
 		}
 
-		if (!productVM.Photo.CheckFileSize(100))
+		if (!productVM.Photo.CheckFileSize(200))
 		{
-			ModelState.AddModelError("Photo", "Image size must be less than 100 kb");
+			ModelState.AddModelError("Photo", "Image size must be less than 200 kb");
 			return View(productVM);
 		}
 
@@ -199,9 +199,9 @@ public class ProductController : Controller
 		{
 			Helper.DeleteFile(_env.WebRootPath, "admin", "assets", "database", "products", "mainimg", product.Photo);
 
-			if (!updateVM.Photo.CheckFileSize(100))
+			if (!updateVM.Photo.CheckFileSize(200))
 			{
-				ModelState.AddModelError("Photo", "Image size must be less than 100 kb");
+				ModelState.AddModelError("Photo", "Image size must be less than 200 kb");
 				return View(updateVM);
 			}
 

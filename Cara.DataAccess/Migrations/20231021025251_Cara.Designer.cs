@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cara.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231018194539_contactBugFixed")]
-    partial class contactBugFixed
+    [Migration("20231021025251_Cara")]
+    partial class Cara
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
