@@ -769,6 +769,50 @@
       "PackagePath": "staticwebassets\\admin\\assets\\images\\.DS_Store"
     },
     {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\images\\Cara-logos.zip",
+      "PackagePath": "staticwebassets\\admin\\assets\\images\\Cara-logos.zip"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\images\\Cara-logos\\CARA-onlyMain.png",
+      "PackagePath": "staticwebassets\\admin\\assets\\images\\Cara-logos\\CARA-onlyMain.png"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\images\\Cara-logos\\Cara-logos-3.jpeg",
+      "PackagePath": "staticwebassets\\admin\\assets\\images\\Cara-logos\\Cara-logos-3.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\images\\Cara-logos\\Cara-logos.jpeg",
+      "PackagePath": "staticwebassets\\admin\\assets\\images\\Cara-logos\\Cara-logos.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\images\\Cara-logos\\Cara-logos2.jpeg",
+      "PackagePath": "staticwebassets\\admin\\assets\\images\\Cara-logos\\Cara-logos2.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\images\\Cara-logos\\Cara-logos_black.png",
+      "PackagePath": "staticwebassets\\admin\\assets\\images\\Cara-logos\\Cara-logos_black.png"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\images\\Cara-logos\\Cara-logos_transparent.png",
+      "PackagePath": "staticwebassets\\admin\\assets\\images\\Cara-logos\\Cara-logos_transparent.png"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\images\\Cara-logos\\Cara-logos_white.png",
+      "PackagePath": "staticwebassets\\admin\\assets\\images\\Cara-logos\\Cara-logos_white.png"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\images\\Cara-logos\\Cara.png",
+      "PackagePath": "staticwebassets\\admin\\assets\\images\\Cara-logos\\Cara.png"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\images\\Cara-logos\\CaraLogo.png",
+      "PackagePath": "staticwebassets\\admin\\assets\\images\\Cara-logos\\CaraLogo.png"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\images\\Cara-logos\\logo_info.txt",
+      "PackagePath": "staticwebassets\\admin\\assets\\images\\Cara-logos\\logo_info.txt"
+    },
+    {
       "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\images\\auth\\.DS_Store",
       "PackagePath": "staticwebassets\\admin\\assets\\images\\auth\\.DS_Store"
     },
@@ -915,6 +959,10 @@
     {
       "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\images\\logo.svg",
       "PackagePath": "staticwebassets\\admin\\assets\\images\\logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\images\\logoAzmood.jpeg",
+      "PackagePath": "staticwebassets\\admin\\assets\\images\\logoAzmood.jpeg"
     },
     {
       "Id": "C:\\Users\\Asus\\source\\repos\\CaraEcommerce\\Cara.WebUI\\wwwroot\\admin\\assets\\js\\.DS_Store",
