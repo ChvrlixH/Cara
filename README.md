@@ -8,7 +8,7 @@ Welcome to Cara, your ultimate destination for fashion, style, and convenience.
 Cara is an online fashion eCommerce platform owned and operated by Azmood Company. We're committed to providing you with an exceptional shopping and fashion experience.
 
 - **Website**: [www.cara.com](https://localhost:7170/)
-- **CEO**: Huseyn Ahadzada
+- **CEO**: [Huseyn Ahadzada](https://www.linkedin.com/in/h%C3%BCseyn-%C9%99h%C9%99dzad%C9%99-a3b47624a/)
 - **Contact Email**: azmoodcompany@gmail.com
 
 ## Table of Contents
